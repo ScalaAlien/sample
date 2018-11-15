@@ -5,8 +5,6 @@ import java.time.ZonedDateTime
 import scalikejdbc._
 import skinny.orm._
 
-import scala.util.Try
-
 case class Beacon(id: Option[Long] = None,
                   serial: String,
                   bleAddress: String,
@@ -44,21 +42,6 @@ object Beacon extends SkinnyCRUDMapper[Beacon] {
   def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int =
     updateById(beacon.id.get).withAttributes(toNamedValues(beacon): _*)
 
-  def findBySerial(serial: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]] =
-    Try {
-      Beacon.where('serial -> serial).apply.headOption
-    }
-
-  def findByBLEAddress(bleAddress: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]] =
-    Try {
-      Beacon.where('bleAddress -> bleAddress).apply.headOption
-    }
-
-  def findBySerialAndBLEAddress(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]] =
-    Try {
-      Beacon.where('serial -> serial, 'bleAddress -> bleAddress).apply.headOption
-    }
-
   private def toNamedValues(record: Beacon): Seq[(Symbol, Any)] = Seq(
     'serial -> record.serial,
     'bleAddress -> record.bleAddress,
@@ -69,5 +52,4 @@ object Beacon extends SkinnyCRUDMapper[Beacon] {
     'createAt -> record.createAt,
     'updateAt -> record.updateAt
   )
-
 }

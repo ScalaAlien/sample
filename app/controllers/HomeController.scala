@@ -2,11 +2,8 @@ package controllers
 
 import javax.inject._
 import models.{Location, Place}
-import play.api._
-import play.api.mvc._
 import play.api.mvc._
 import play.api.libs.json._
-import play.api.libs.functional.syntax._
 
 /**
   * This controller creates an `Action` to handle HTTP requests to the
@@ -15,15 +12,19 @@ import play.api.libs.functional.syntax._
 @Singleton
 class HomeController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
 
-  implicit val locationWrites: Writes[Location] = (
-    (JsPath \ "lat").write[Double] and
-      (JsPath \ "long").write[Double]
-    ) (unlift(Location.unapply))
+  implicit val locationWrites: Writes[Location] = {
+    new Writes[Location] {
+      def writes(location: Location) =
+        Json.obj("lat" -> location.lat, "long" -> location.long)
+    }
+  }
 
-  implicit val placeWrites: Writes[Place] = (
-    (JsPath \ "name").write[String] and
-      (JsPath \ "location").write[Location]
-    ) (unlift(Place.unapply))
+  implicit val placeWrites: Writes[Place] = {
+    new Writes[Place] {
+      def writes(place: Place) =
+        Json.obj("name" -> place.name, "location" -> place.location)
+    }
+  }
 
   /**
     * Create an Action to render an HTML page.
