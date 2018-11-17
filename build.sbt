@@ -1,3 +1,5 @@
+import com.typesafe.config.{ Config, ConfigFactory }
+import scala.collection.JavaConverters._
 name := """sample"""
 organization := "com.example"
 
@@ -27,9 +29,6 @@ libraryDependencies ++= Seq(
 )
 
 
-import com.typesafe.config.{ Config, ConfigFactory }
-import scala.collection.JavaConverters._
-// 中略
 lazy val envConfig = settingKey[Config]("env-config")
 
 envConfig := {

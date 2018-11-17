@@ -14,4 +14,6 @@ trait BeaconService {
   def getBySerialAndBleAddress(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]]
 
   def confirmFinishedProductInspection(serial: String, bleAddress: String): JsObject
+
+
 }

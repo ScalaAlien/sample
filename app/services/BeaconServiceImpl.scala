@@ -31,20 +31,25 @@ class BeaconServiceImpl extends BeaconService {
     val beaconBySerialAndBleAddress = getBySerialAndBleAddress(serial, bleAddress).getOrElse(None)
     val beaconBySerial = getBySerial(serial).getOrElse(None)
     val beaconByBleAddress = getByBleAddress(bleAddress).getOrElse(None)
-    if (beaconBySerialAndBleAddress.isDefined) {
-      Json.obj("existsSerial" -> true, "existsBleAddress" -> true)
-    } else if (beaconBySerial.isDefined) {
-      Json.obj("existsSerial" -> true, "existsBleAddress" -> false)
-    } else if (beaconByBleAddress.isDefined) {
-      val jsObj = Json.obj("existsSerial" -> false, "existsBleAddress" -> true)
-      beaconByBleAddress.get.visualInspectionDefectiveAt match {
-        case Some(_) =>
-          jsObj ++ Json.obj("visualInspectionDefectiveAt" -> true)
-        case None =>
-          jsObj ++ Json.obj( "visualInspectionDefectiveAt" -> false)
+    Json.obj("confirmFinishedProductInspection" -> {
+      if (beaconBySerialAndBleAddress.isDefined) {
+        Json.obj("existsSerial" -> true, "existsBleAddress" -> true)
+      } else if (beaconBySerial.isDefined) {
+        Json.obj("existsSerial" -> true, "existsBleAddress" -> false)
+      } else if (beaconByBleAddress.isDefined) {
+        val jsObj = Json.obj("existsSerial" -> false, "existsBleAddress" -> true)
+        beaconByBleAddress.get.visualInspectionDefectiveAt match {
+          case Some(_) =>
+            jsObj ++ Json.obj("existsVisualInspectionDefectiveAt" -> true)
+          case None =>
+            jsObj ++ Json.obj("existsVisualInspectionDefectiveAt" -> false)
+        }
+      } else {
+        Json.obj("existsSerial" -> false, "existsBleAddress" -> false)
       }
-    } else {
-      Json.obj("existsSerial" -> false, "existsBleAddress" -> false)
     }
+    )
   }
+
+
 }

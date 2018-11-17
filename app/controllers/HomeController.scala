@@ -2,6 +2,7 @@ package controllers
 
 import javax.inject._
 import models.{Location, Place}
+import play.api.i18n.I18nSupport
 import play.api.mvc._
 import play.api.libs.json._
 
@@ -10,7 +11,9 @@ import play.api.libs.json._
   * application's home page.
   */
 @Singleton
-class HomeController @Inject()(cc: ControllerComponents) extends AbstractController(cc) {
+class HomeController @Inject()(components: ControllerComponents)
+  extends AbstractController(components)
+    with I18nSupport {
 
   implicit val locationWrites: Writes[Location] = {
     new Writes[Location] {

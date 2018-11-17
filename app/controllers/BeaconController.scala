@@ -12,7 +12,7 @@ class BeaconController @Inject()(val beaconService: BeaconService,
                                  components: ControllerComponents)(implicit ec: ExecutionContext)
   extends AbstractController(components) {
 
-  def index(serial: String, bleAddress: String) = Action { implicit request: Request[AnyContent] =>
+  def confirmFinishedProductInspection(serial: String, bleAddress: String) = Action { implicit request: Request[AnyContent] =>
     val json = Json.toJson(beaconService.confirmFinishedProductInspection(serial, bleAddress))
     Ok(json)
   }
