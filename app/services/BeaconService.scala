@@ -15,5 +15,6 @@ trait BeaconService {
 
   def confirmFinishedProductInspection(serial: String, bleAddress: String): JsObject
 
+  def confirmPackaging(serial: String, bleAddress: String): JsObject
 
 }
