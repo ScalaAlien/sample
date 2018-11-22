@@ -9,6 +9,7 @@ import scala.util.Try
 
 @Singleton
 class BeaconServiceImpl extends BeaconService {
+
   override def getBySerial(serial: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]] =
     Try {
       Beacon
@@ -33,8 +34,7 @@ class BeaconServiceImpl extends BeaconService {
         .headOption
     }
 
-  override def confirmFinishedProductInspection(serial: String,
-                                                 bleAddress: String): JsObject = {
+  override def confirmFinishedProductInspection(serial: String, bleAddress: String): JsObject = {
     val beaconBySerialAndBleAddress = getBySerialAndBleAddress(serial, bleAddress).getOrElse(None)
     val beaconBySerial = getBySerial(serial).getOrElse(None)
     val beaconByBleAddress = getByBleAddress(bleAddress).getOrElse(None)
@@ -106,4 +106,8 @@ class BeaconServiceImpl extends BeaconService {
       }
     })
   }
+
+  override def create(beacon: Beacon)(implicit session: DBSession = AutoSession): Long = Beacon.create(beacon)
+
+  override def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int = Beacon.update(beacon)
 }

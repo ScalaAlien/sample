@@ -21,7 +21,7 @@ object BeaconLog extends SkinnyCRUDMapper[BeaconLog] {
 
   override val columns = Seq(
     "id",
-    "beaconsId",
+    "beacon_id",
     "serial",
     "ble_address",
     "ng",
@@ -32,7 +32,7 @@ object BeaconLog extends SkinnyCRUDMapper[BeaconLog] {
     "updated_at"
   )
 
-  override def tableName = "beacons_log"
+  override def tableName = "beacon_log"
 
   override def defaultAlias: Alias[BeaconLog] = createAlias("bl")
 

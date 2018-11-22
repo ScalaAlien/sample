@@ -44,17 +44,12 @@ flywayUrl := envConfig.value.getString("jdbcUrl")
 flywayUser := envConfig.value.getString("jdbcUserName")
 flywayPassword := envConfig.value.getString("jdbcPassword")
 
-assemblyMergeStrategy in assembly := {
-  case PathList("org", "apache", xs @ _*) => MergeStrategy.first
-  case PathList("scalikejdbc", "jsr310", xs @ _*) => MergeStrategy.first
-  case x =>
-    val oldStrategy = (assemblyMergeStrategy in assembly).value
-    oldStrategy(x)
-}
 mainClass in assembly := Some("play.core.server.ProdServerStart")
 fullClasspath in assembly += Attributed.blank(PlayKeys.playPackageAssets.value)
 
 assemblyMergeStrategy in assembly := {
+  case PathList("org", "apache", xs @ _*) => MergeStrategy.first
+  case PathList("scalikejdbc", "jsr310", xs @ _*) => MergeStrategy.first
   case manifest if manifest.contains("MANIFEST.MF") =>
     // We don't need manifest files since sbt-assembly will create
     // one with the given settings

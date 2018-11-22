@@ -10,9 +10,9 @@ CREATE TABLE `beacons` (
 
  `finished_product_inspection_at` TIMESTAMP             NULL     DEFAULT CURRENT_TIMESTAMP,
 
- `packaging_at`                   TIMESTAMP             NULL     DEFAULT CURRENT_TIMESTAMP,
+ `packaging_at`                   TIMESTAMP             NULL     DEFAULT NULL,
 
- `visual_inspection_defective_at` TIMESTAMP             NULL     DEFAULT CURRENT_TIMESTAMP,
+ `visual_inspection_defective_at` TIMESTAMP             NULL     DEFAULT NULL,
 
  `create_at`                      TIMESTAMP             NOT NULL DEFAULT CURRENT_TIMESTAMP,
 
