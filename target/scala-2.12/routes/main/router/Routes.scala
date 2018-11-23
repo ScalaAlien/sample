@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/tools/cygwin/home/Kosuke/sources/sample/conf/routes
-// @DATE:Mon Nov 19 23:57:16 JST 2018
+// @DATE:Fri Nov 23 18:00:01 JST 2018
 
 package router
 
@@ -42,7 +42,7 @@ class Routes(
   }
 
   def documentation = List(
-    ("""GET""", this.prefix, """controllers.HomeController.index"""),
+    ("""GET""", this.prefix, """controllers.HomeController.hello"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """listPlaces""", """controllers.HomeController.listPlaces"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """confirmFinishedProductInspection""", """controllers.BeaconController.confirmFinishedProductInspection(serial:String, bleAddress:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createFinishedProductInspection""", """controllers.BeaconController.createFinishedProductInspection"""),
@@ -58,15 +58,15 @@ class Routes(
 
 
   // @LINE:7
-  private[this] lazy val controllers_HomeController_index0_route = Route("GET",
+  private[this] lazy val controllers_HomeController_hello0_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix)))
   )
-  private[this] lazy val controllers_HomeController_index0_invoker = createInvoker(
-    HomeController_0.index,
+  private[this] lazy val controllers_HomeController_hello0_invoker = createInvoker(
+    HomeController_0.hello,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.HomeController",
-      "index",
+      "hello",
       Nil,
       "GET",
       this.prefix + """""",
@@ -205,9 +205,9 @@ class Routes(
   def routes: PartialFunction[RequestHeader, Handler] = {
   
     // @LINE:7
-    case controllers_HomeController_index0_route(params@_) =>
+    case controllers_HomeController_hello0_route(params@_) =>
       call { 
-        controllers_HomeController_index0_invoker.call(HomeController_0.index)
+        controllers_HomeController_hello0_invoker.call(HomeController_0.hello)
       }
   
     // @LINE:8

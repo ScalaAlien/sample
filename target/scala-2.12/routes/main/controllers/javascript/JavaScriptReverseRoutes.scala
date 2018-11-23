@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/tools/cygwin/home/Kosuke/sources/sample/conf/routes
-// @DATE:Mon Nov 19 23:57:16 JST 2018
+// @DATE:Fri Nov 23 18:00:01 JST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -78,22 +78,22 @@ package controllers.javascript {
     }
 
   
+    // @LINE:7
+    def hello: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.hello",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + """"})
+        }
+      """
+    )
+  
     // @LINE:8
     def listPlaces: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.listPlaces",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listPlaces"})
-        }
-      """
-    )
-  
-    // @LINE:7
-    def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + """"})
         }
       """
     )

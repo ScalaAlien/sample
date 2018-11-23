@@ -4,7 +4,7 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                                                      controllers.HomeController.index
+GET     /                                                      controllers.HomeController.hello
 GET     /listPlaces                                            controllers.HomeController.listPlaces
 GET     /confirmFinishedProductInspection                      controllers.BeaconController.confirmFinishedProductInspection(serial: String, bleAddress: String)
 POST    /createFinishedProductInspection                       controllers.BeaconController.createFinishedProductInspection

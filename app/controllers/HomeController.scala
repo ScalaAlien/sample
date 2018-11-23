@@ -41,7 +41,7 @@ class HomeController @Inject()(components: ControllerComponents)
     Ok(json)
   }
 
-  def index() = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+  def hello = Action { implicit request: Request[AnyContent] =>
+    Ok(views.html.hello())
   }
 }
