@@ -1,3 +1,6 @@
-let hello = 'hello';
-window.alert(hello);
-console.log(hello);
+var app = new Vue({
+    el: '#app',
+    data: {
+        message: 'Hello Vue!'
+    }
+});

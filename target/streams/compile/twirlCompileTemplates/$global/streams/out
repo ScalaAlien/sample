@@ -1,0 +1,2 @@
+[0m[[0m[31merror[0m] [0m[0m[Error] C:\tools\cygwin\home\Kosuke\sources\sample\app\views\hello.scala.html:5[0m
+[0m[[0m[31merror[0m] [0m[0m    <script src="https://cdn.jsdelivr.net/npm/vue\@2.5.17/dist/vue.js"></script>: Invalid '@' symbol[0m
