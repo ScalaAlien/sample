@@ -27,7 +27,7 @@ Seq[Any](format.raw/*2.1*/("""
 """),format.raw/*3.1*/("""<!DOCTYPE html>
 <html>
 <head>
-    <title>"""),_display_(/*6.13*/title),format.raw/*6.18*/(""" """),format.raw/*6.19*/("""- MonoList</title>
+    <title>"""),_display_(/*6.13*/title),format.raw/*6.18*/("""</title>
     <link rel="stylesheet" media="screen" href=""""),_display_(/*7.50*/routes/*7.56*/.Assets.versioned("stylesheets/main.css")),format.raw/*7.97*/("""">
 </head>
 <body>
@@ -36,7 +36,9 @@ Seq[Any](format.raw/*2.1*/("""
     """),_display_(/*12.6*/content),format.raw/*12.13*/("""
 """),format.raw/*13.1*/("""</div>
 """),_display_(/*14.2*/common/*14.8*/.footer()),format.raw/*14.17*/("""
-"""),format.raw/*15.1*/("""</body>
+"""),format.raw/*15.1*/("""<script src="""),_display_(/*15.14*/routes/*15.20*/.Assets.versioned("javascripts/vue.js")),format.raw/*15.59*/("""></script>
+<script src="""),_display_(/*16.14*/routes/*16.20*/.Assets.versioned("javascripts/main.js")),format.raw/*16.60*/("""></script>
+</body>
 </html>"""))
       }
     }
@@ -53,11 +55,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Nov 19 23:57:16 JST 2018
+                  DATE: Tue Nov 27 23:13:09 JST 2018
                   SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/main.scala.html
-                  HASH: e05500ff1f86fe095c2e2504f98afe19d6e5f864
-                  MATRIX: 770->1|977->115|1004->116|1072->158|1097->163|1125->164|1219->232|1233->238|1294->279|1367->326|1382->332|1414->343|1446->349|1474->356|1502->357|1536->365|1550->371|1580->380|1608->381
-                  LINES: 21->1|26->2|27->3|30->6|30->6|30->6|31->7|31->7|31->7|35->11|35->11|35->11|36->12|36->12|37->13|38->14|38->14|38->14|39->15
+                  HASH: cfaa3c71a68073bb9589f58e3eeaf3a438933728
+                  MATRIX: 770->1|977->115|1004->116|1072->158|1097->163|1181->221|1195->227|1256->268|1329->315|1344->321|1376->332|1408->338|1436->345|1464->346|1498->354|1512->360|1542->369|1570->370|1610->383|1625->389|1685->428|1736->452|1751->458|1812->498
+                  LINES: 21->1|26->2|27->3|30->6|30->6|31->7|31->7|31->7|35->11|35->11|35->11|36->12|36->12|37->13|38->14|38->14|38->14|39->15|39->15|39->15|39->15|40->16|40->16|40->16
                   -- GENERATED --
               */
           
