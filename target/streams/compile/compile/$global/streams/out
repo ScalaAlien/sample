@@ -1,4 +1,7 @@
-[error] C:\tools\cygwin\home\Kosuke\sources\sample\app\views\index.scala.html:10:18: not found: value click
-[error]                 @click="sortBy(key)"
-[error]                  ^
-[error] one error found
+[error] C:\tools\cygwin\home\Kosuke\sources\sample\app\views\index.scala.html:5:45: ')' expected but identifier found.
+[error] @(startField: Field, startArgs: (Symbol,Any)*)(endField: Field, endArgs: (Symbol,Any)*)(globalArgs: (Symbol,Any)*)(implicit fc: b3.B3FieldConstructor, messages: Messages)
+[error]                                             ^
+[error] C:\tools\cygwin\home\Kosuke\sources\sample\app\views\index.scala.html:13:2: ')' expected but '}' found.
+[error] }
+[error]  ^
+[error] two errors found

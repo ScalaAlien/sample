@@ -12,7 +12,7 @@ class HomeControllerSpec extends FunSpec
   describe("HomeController") {
     describe("route of HomeController#hello") {
       it("should be valid") {
-        val result = route(app, FakeRequest(GET, routes.HomeController.hello.toString)).get
+        val result = route(app, FakeRequest(GET, routes.HomeController.index.toString)).get
         status(result) mustBe OK
       }
     }

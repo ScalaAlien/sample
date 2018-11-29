@@ -1,7 +1,11 @@
 package controllers
 
+import java.time.ZonedDateTime
+
+import forms.Show
 import javax.inject._
 import models.{Location, Place}
+import play.api.data.Form
 import play.api.i18n.I18nSupport
 import play.api.mvc._
 import play.api.libs.json._
@@ -40,6 +44,15 @@ class HomeController @Inject()(components: ControllerComponents)
     val json = Json.toJson(Place.list)
     Ok(json)
   }
+
+/*  private val showForm: Form[Show] = Form {
+    mapping(
+      "date_start" -> sqlTimestamp,
+      "date_end" -> sqlTimestamp,
+      "serial" -> text,
+      "ble_address" -> text
+    )(Show.apply)(Show.unapply)
+  }*/
 
   def index = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index())

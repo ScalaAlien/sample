@@ -136,3 +136,5 @@ exit
 exit
 run
 git add .
+test
+run

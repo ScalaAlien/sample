@@ -28,16 +28,20 @@ Seq[Any](format.raw/*2.1*/("""
 <html>
 <head>
     <title>"""),_display_(/*6.13*/title),format.raw/*6.18*/("""</title>
-    <link rel="stylesheet" media="screen" href=""""),_display_(/*7.50*/routes/*7.56*/.Assets.versioned("stylesheets/main.css")),format.raw/*7.97*/("""">
 </head>
 <body>
 <div class="container">
-    """),_display_(/*11.6*/common/*11.12*/.messages()),format.raw/*11.23*/("""
-    """),_display_(/*12.6*/content),format.raw/*12.13*/("""
-"""),format.raw/*13.1*/("""</div>
-"""),_display_(/*14.2*/common/*14.8*/.footer()),format.raw/*14.17*/("""
-"""),format.raw/*15.1*/("""<script src="""),_display_(/*15.14*/routes/*15.20*/.Assets.versioned("javascripts/vue.js")),format.raw/*15.59*/("""></script>
-<script src="""),_display_(/*16.14*/routes/*16.20*/.Assets.versioned("javascripts/main.js")),format.raw/*16.60*/("""></script>
+    """),_display_(/*10.6*/common/*10.12*/.messages()),format.raw/*10.23*/("""
+    """),_display_(/*11.6*/content),format.raw/*11.13*/("""
+"""),format.raw/*12.1*/("""</div>
+"""),_display_(/*13.2*/common/*13.8*/.footer()),format.raw/*13.17*/("""
+"""),format.raw/*14.73*/("""
+"""),format.raw/*15.1*/("""<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" media="screen" href=""""),_display_(/*16.46*/routes/*16.52*/.Assets.versioned("stylesheets/main.css")),format.raw/*16.93*/("""">
+<script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+<script src="""),_display_(/*20.14*/routes/*20.20*/.Assets.versioned("javascripts/main.js")),format.raw/*20.60*/("""></script>
 </body>
 </html>"""))
       }
@@ -55,11 +59,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Nov 27 23:13:09 JST 2018
+                  DATE: Thu Nov 29 20:35:25 JST 2018
                   SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/main.scala.html
-                  HASH: cfaa3c71a68073bb9589f58e3eeaf3a438933728
-                  MATRIX: 770->1|977->115|1004->116|1072->158|1097->163|1181->221|1195->227|1256->268|1329->315|1344->321|1376->332|1408->338|1436->345|1464->346|1498->354|1512->360|1542->369|1570->370|1610->383|1625->389|1685->428|1736->452|1751->458|1812->498
-                  LINES: 21->1|26->2|27->3|30->6|30->6|31->7|31->7|31->7|35->11|35->11|35->11|36->12|36->12|37->13|38->14|38->14|38->14|39->15|39->15|39->15|39->15|40->16|40->16|40->16
+                  HASH: 7af62ee927c295fda7bf19b6901b4b89a690d9cb
+                  MATRIX: 770->1|977->115|1004->116|1072->158|1097->163|1176->216|1191->222|1223->233|1255->239|1283->246|1311->247|1345->255|1359->261|1389->270|1418->343|1446->344|1730->601|1745->607|1807->648|2440->1254|2455->1260|2516->1300
+                  LINES: 21->1|26->2|27->3|30->6|30->6|34->10|34->10|34->10|35->11|35->11|36->12|37->13|37->13|37->13|38->14|39->15|40->16|40->16|40->16|44->20|44->20|44->20
                   -- GENERATED --
               */
           

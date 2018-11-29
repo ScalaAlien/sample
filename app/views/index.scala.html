@@ -2,39 +2,25 @@
 
 @main(Messages("Home")) {
 
-<script type="text/x-template" id="grid-template">
-    <table>
-        <thead>
-        <tr>
-            <th v-for="key in columns"
-                @@click="sortBy(key)"
-                :class="{ active: sortKey == key }">
-                {{ key | capitalize }}
-                <span class="arrow" :class="sortOrders[key] > 0 ? 'asc' : 'dsc'">
-          </span>
-            </th>
-        </tr>
-        </thead>
-        <tbody>
-        <tr v-for="entry in filteredData">
-            <td v-for="key in columns">
-                {{entry[key]}}
-            </td>
-        </tr>
-        </tbody>
-    </table>
-</script>
-
-<!-- demo root element -->
-<div id="demo">
-    <form id="search">
-        Search <input name="query" v-model="searchQuery">
-    </form>
-    <demo-grid
-            :data="gridData"
-            :columns="gridColumns"
-            :filter-key="searchQuery">
-    </demo-grid>
-</div>
-
+<form>
+    <div class="form-row">
+        <div class="col-md-2 mb-3">
+            <label for="date_start">start_date</label>
+            <input type="text" class="form-control" id="date_start" placeholder="date_start">
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="date_end">end_date</label>
+            <input type="text" class="form-control" id="date_end" placeholder="date_end">
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="serial">serial</label>
+            <input type="text" class="form-control" id="serial" placeholder="serial">
+        </div>
+        <div class="col-md-2 mb-3">
+            <label for="ble_address">ble_address</label>
+            <input type="text" class="form-control" id="ble_address" placeholder="ble_address">
+        </div>
+    </div>
+    <button class="btn btn-primary" type="submit">submit_form</button>
+</form>
 }

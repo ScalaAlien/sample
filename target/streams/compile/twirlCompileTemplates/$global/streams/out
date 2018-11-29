@@ -1,2 +1,2 @@
-[0m[[0m[31merror[0m] [0m[0m[Error] C:\tools\cygwin\home\Kosuke\sources\sample\app\views\hello.scala.html:15[0m
-[0m[[0m[31merror[0m] [0m[0m</html>: Expected ')' but found 'EOF'[0m
+[error] [Error] C:\tools\cygwin\home\Kosuke\sources\sample\app\views\index.scala.html:24
+[error]                     <span class="input-group-text" id="inputGroupPrepend3">@</span>: Expected '}' but found '@'
