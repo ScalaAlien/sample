@@ -1,16 +1,15 @@
-@()(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader)
+@(show: Form[Show])(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader)
 
 @main(Messages("Home")) {
-
-<form>
+<form method="POST" action="/beacons/show">
     <div class="form-row">
         <div class="col-md-2 mb-3">
             <label for="date_start">start_date</label>
-            <input type="text" class="form-control" id="date_start" placeholder="date_start">
+            <input type="datetime" class="form-control" id="date_start" placeholder="date_start">
         </div>
         <div class="col-md-2 mb-3">
             <label for="date_end">end_date</label>
-            <input type="text" class="form-control" id="date_end" placeholder="date_end">
+            <input type="datetime" class="form-control" id="date_end" placeholder="date_end">
         </div>
         <div class="col-md-2 mb-3">
             <label for="serial">serial</label>
@@ -23,4 +22,5 @@
     </div>
     <button class="btn btn-primary" type="submit">submit_form</button>
 </form>
+
 }

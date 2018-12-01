@@ -1,14 +1,13 @@
 package controllers
 
-import java.time.ZonedDateTime
-
 import forms.Show
 import javax.inject._
 import models.{Location, Place}
-import play.api.data.Form
-import play.api.i18n.I18nSupport
-import play.api.mvc._
+import play.api.data.Forms._
+import play.api.data._
+import play.api.i18n._
 import play.api.libs.json._
+import play.api.mvc._
 
 /**
   * This controller creates an `Action` to handle HTTP requests to the
@@ -45,16 +44,28 @@ class HomeController @Inject()(components: ControllerComponents)
     Ok(json)
   }
 
-/*  private val showForm: Form[Show] = Form {
+  private val form = Form(
     mapping(
       "date_start" -> sqlTimestamp,
       "date_end" -> sqlTimestamp,
       "serial" -> text,
       "ble_address" -> text
     )(Show.apply)(Show.unapply)
-  }*/
+  )
 
   def index = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index())
+    Ok(views.html.index(form))
+  }
+
+  def show: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
+    form
+      .bindFromRequest()
+      .fold(
+        { formWithErrors =>
+          BadRequest(views.html.index(formWithErrors))
+        }, { show =>
+          Ok(views.html.beacons.show(show))
+        }
+      )
   }
 }

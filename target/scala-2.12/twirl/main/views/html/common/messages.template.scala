@@ -14,6 +14,7 @@ import views.html._
 import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
+import forms._
 
 object messages extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template1[Flash,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -60,11 +61,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Mon Nov 19 23:57:16 JST 2018
+                  DATE: Sat Dec 01 13:00:41 JST 2018
                   SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/common/messages.scala.html
-                  HASH: 73ceb5f9b96d3ee843df0a7c6a13e8559b4f53d4
-                  MATRIX: 738->1|857->27|884->29|896->34|923->53|973->66|1000->67|1110->151|1137->158|1168->163|1212->178|1240->180|1253->185|1281->204|1332->217|1360->218|1471->302|1499->309|1531->314|1576->329|1604->331|1617->336|1645->355|1696->368|1724->369|1834->452|1862->459|1894->464
-                  LINES: 21->1|26->2|27->3|27->3|27->3|27->3|28->4|30->6|30->6|31->7|33->9|34->10|34->10|34->10|34->10|35->11|37->13|37->13|38->14|40->16|41->17|41->17|41->17|41->17|42->18|44->20|44->20|45->21
+                  HASH: 94c825af074385e6270caf8fce701744cab52ad7
+                  MATRIX: 753->1|872->27|899->29|911->34|938->53|988->66|1015->67|1125->151|1152->158|1183->163|1227->178|1255->180|1268->185|1296->204|1347->217|1375->218|1486->302|1514->309|1546->314|1591->329|1619->331|1632->336|1660->355|1711->368|1739->369|1849->452|1877->459|1909->464
+                  LINES: 22->1|27->2|28->3|28->3|28->3|28->3|29->4|31->6|31->6|32->7|34->9|35->10|35->10|35->10|35->10|36->11|38->13|38->13|39->14|41->16|42->17|42->17|42->17|42->17|43->18|45->20|45->20|46->21
                   -- GENERATED --
               */
           

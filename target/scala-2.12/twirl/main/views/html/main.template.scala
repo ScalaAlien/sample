@@ -14,6 +14,7 @@ import views.html._
 import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
+import forms._
 
 object main extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template5[String,Html,MessagesProvider,Flash,RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
@@ -35,13 +36,12 @@ Seq[Any](format.raw/*2.1*/("""
     """),_display_(/*11.6*/content),format.raw/*11.13*/("""
 """),format.raw/*12.1*/("""</div>
 """),_display_(/*13.2*/common/*13.8*/.footer()),format.raw/*13.17*/("""
-"""),format.raw/*14.73*/("""
-"""),format.raw/*15.1*/("""<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
-<link rel="stylesheet" media="screen" href=""""),_display_(/*16.46*/routes/*16.52*/.Assets.versioned("stylesheets/main.css")),format.raw/*16.93*/("""">
+"""),format.raw/*14.1*/("""<link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+<link rel="stylesheet" media="screen" href=""""),_display_(/*15.46*/routes/*15.52*/.Assets.versioned("stylesheets/main.css")),format.raw/*15.93*/("""">
 <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
 <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
-<script src="""),_display_(/*20.14*/routes/*20.20*/.Assets.versioned("javascripts/main.js")),format.raw/*20.60*/("""></script>
+<script src="""),_display_(/*19.14*/routes/*19.20*/.Assets.versioned("javascripts/main.js")),format.raw/*19.60*/("""></script>
 </body>
 </html>"""))
       }
@@ -59,11 +59,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Thu Nov 29 20:35:25 JST 2018
+                  DATE: Sat Dec 01 13:00:41 JST 2018
                   SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/main.scala.html
-                  HASH: 7af62ee927c295fda7bf19b6901b4b89a690d9cb
-                  MATRIX: 770->1|977->115|1004->116|1072->158|1097->163|1176->216|1191->222|1223->233|1255->239|1283->246|1311->247|1345->255|1359->261|1389->270|1418->343|1446->344|1730->601|1745->607|1807->648|2440->1254|2455->1260|2516->1300
-                  LINES: 21->1|26->2|27->3|30->6|30->6|34->10|34->10|34->10|35->11|35->11|36->12|37->13|37->13|37->13|38->14|39->15|40->16|40->16|40->16|44->20|44->20|44->20
+                  HASH: c3cb6f513b5caafe10e27bb101f9fc6d8a111cff
+                  MATRIX: 785->1|992->115|1019->116|1087->158|1112->163|1191->216|1206->222|1238->233|1270->239|1298->246|1326->247|1360->255|1374->261|1404->270|1432->271|1716->528|1731->534|1793->575|2426->1181|2441->1187|2502->1227
+                  LINES: 22->1|27->2|28->3|31->6|31->6|35->10|35->10|35->10|36->11|36->11|37->12|38->13|38->13|38->13|39->14|40->15|40->15|40->15|44->19|44->19|44->19
                   -- GENERATED --
               */
           

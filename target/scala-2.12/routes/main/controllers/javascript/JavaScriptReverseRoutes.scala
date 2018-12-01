@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/tools/cygwin/home/Kosuke/sources/sample/conf/routes
-// @DATE:Tue Nov 27 21:38:28 JST 2018
+// @DATE:Sat Dec 01 13:41:08 JST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers.javascript {
 
-  // @LINE:9
+  // @LINE:11
   class ReverseBeaconController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:12
+    // @LINE:14
     def updateVisualInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.updateVisualInspection",
       """
@@ -28,7 +28,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:9
+    // @LINE:11
     def confirmFinishedProductInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.confirmFinishedProductInspection",
       """
@@ -38,7 +38,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:11
+    // @LINE:13
     def updateFinishedProductInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.updateFinishedProductInspection",
       """
@@ -48,7 +48,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:13
+    // @LINE:15
     def updatePackaging: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.updatePackaging",
       """
@@ -58,7 +58,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:10
+    // @LINE:12
     def createFinishedProductInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.createFinishedProductInspection",
       """
@@ -78,7 +78,17 @@ package controllers.javascript {
     }
 
   
-    // @LINE:8
+    // @LINE:9
+    def show: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.show",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "beacons/show"})
+        }
+      """
+    )
+  
+    // @LINE:10
     def listPlaces: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.HomeController.listPlaces",
       """
@@ -100,7 +110,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:16
+  // @LINE:19
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -108,7 +118,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:16
+    // @LINE:19
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """
