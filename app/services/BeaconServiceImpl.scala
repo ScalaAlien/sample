@@ -1,5 +1,7 @@
 package services
 
+import java.time.LocalDate
+
 import javax.inject._
 import models.Beacon
 import play.api.libs.json._
@@ -34,7 +36,7 @@ class BeaconServiceImpl extends BeaconService {
         .headOption
     }
 
-  override def confirmFinishedProductInspection(serial: String, bleAddress: String): JsObject = {
+  override def confirmFinishedProductInspection(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): JsObject = {
     val beaconBySerialAndBleAddress = getBySerialAndBleAddress(serial, bleAddress).getOrElse(None)
     val beaconBySerial = getBySerial(serial).getOrElse(None)
     val beaconByBleAddress = getByBleAddress(bleAddress).getOrElse(None)
@@ -57,7 +59,7 @@ class BeaconServiceImpl extends BeaconService {
     })
   }
 
-  override def confirmPackaging(serial: String, bleAddress: String): JsObject = {
+  override def confirmPackaging(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): JsObject = {
     val beaconBySerialAndBleAddress = getBySerialAndBleAddress(serial, bleAddress).getOrElse(None)
     val beaconBySerial = getBySerial(serial).getOrElse(None)
     val beaconByBleAddress = getByBleAddress(bleAddress).getOrElse(None)
@@ -110,4 +112,11 @@ class BeaconServiceImpl extends BeaconService {
   override def create(beacon: Beacon)(implicit session: DBSession = AutoSession): Long = Beacon.create(beacon)
 
   override def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int = Beacon.update(beacon)
+
+  override def show(dateStart: LocalDate, dateEnd: LocalDate, serial: String, bleAddress: String)(implicit session: DBSession = AutoSession) = Try {
+    val b = Beacon.syntax("b")
+    withSQL {
+      select(b.result.*).from(Beacon as b).where.between(b.updateAt, dateStart, dateEnd)
+    }.map(rs => (Beacon(b)(rs), rs.int(1))).list().apply().toVector
+  }
 }

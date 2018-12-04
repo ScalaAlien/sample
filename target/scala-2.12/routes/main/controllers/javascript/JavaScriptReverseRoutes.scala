@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
 // @SOURCE:C:/tools/cygwin/home/Kosuke/sources/sample/conf/routes
-// @DATE:Sat Dec 01 13:41:08 JST 2018
+// @DATE:Tue Dec 04 20:39:32 JST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -10,7 +10,7 @@ import _root_.controllers.Assets.Asset
 // @LINE:7
 package controllers.javascript {
 
-  // @LINE:11
+  // @LINE:7
   class ReverseBeaconController(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -18,7 +18,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:14
+    // @LINE:13
     def updateVisualInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.updateVisualInspection",
       """
@@ -28,7 +28,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:11
+    // @LINE:10
     def confirmFinishedProductInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.confirmFinishedProductInspection",
       """
@@ -38,7 +38,17 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:13
+    // @LINE:8
+    def show: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.BeaconController.show",
+      """
+        function() {
+          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "show"})
+        }
+      """
+    )
+  
+    // @LINE:12
     def updateFinishedProductInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.updateFinishedProductInspection",
       """
@@ -48,7 +58,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:15
+    // @LINE:14
     def updatePackaging: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.updatePackaging",
       """
@@ -58,7 +68,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:12
+    // @LINE:11
     def createFinishedProductInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.createFinishedProductInspection",
       """
@@ -68,39 +78,9 @@ package controllers.javascript {
       """
     )
   
-  }
-
-  // @LINE:7
-  class ReverseHomeController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:9
-    def show: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.show",
-      """
-        function() {
-          return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "beacons/show"})
-        }
-      """
-    )
-  
-    // @LINE:10
-    def listPlaces: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.listPlaces",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listPlaces"})
-        }
-      """
-    )
-  
     // @LINE:7
     def index: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.index",
+      "controllers.BeaconController.index",
       """
         function() {
           return _wA({method:"GET", url:"""" + _prefix + """"})
@@ -110,7 +90,27 @@ package controllers.javascript {
   
   }
 
-  // @LINE:19
+  // @LINE:9
+  class ReverseHomeController(_prefix: => String) {
+
+    def _defaultPrefix: String = {
+      if (_prefix.endsWith("/")) "" else "/"
+    }
+
+  
+    // @LINE:9
+    def listPlaces: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.HomeController.listPlaces",
+      """
+        function() {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listPlaces"})
+        }
+      """
+    )
+  
+  }
+
+  // @LINE:18
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -118,7 +118,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:19
+    // @LINE:18
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

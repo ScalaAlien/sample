@@ -1,5 +1,5 @@
 package forms
 
-import java.sql.Timestamp
+import java.time._
 
-case class Show(date_start: Timestamp, date_end: Timestamp, serial: String, ble_address: String)
+case class Show(date_start: LocalDate, date_end: LocalDate, serial: String, ble_address: String)

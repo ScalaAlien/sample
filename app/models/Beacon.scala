@@ -36,11 +36,9 @@ object Beacon extends SkinnyCRUDMapper[Beacon] {
   override def extract(rs: WrappedResultSet, n: ResultName[Beacon]): Beacon =
     autoConstruct(rs, n)
 
-  def create(beacon: Beacon)(implicit session: DBSession = AutoSession): Long =
-    createWithAttributes(toNamedValues(beacon): _*)
+  def create(beacon: Beacon)(implicit session: DBSession = AutoSession): Long = createWithAttributes(toNamedValues(beacon): _*)
 
-  def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int =
-    updateById(beacon.id.get).withAttributes(toNamedValues(beacon): _*)
+  def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int = updateById(beacon.id.get).withAttributes(toNamedValues(beacon): _*)
 
   private def toNamedValues(record: Beacon): Seq[(Symbol, Any)] = Seq(
     'serial -> record.serial,

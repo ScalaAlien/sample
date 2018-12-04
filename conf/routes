@@ -4,9 +4,8 @@
 # ~~~~
 
 # An example controller showing a sample home page
-GET     /                                                      controllers.HomeController.index
-+nocsrf
-POST    /beacons/show                                          controllers.HomeController.show
+GET     /                                                      controllers.BeaconController.index
+POST    /show                                                  controllers.BeaconController.show
 GET     /listPlaces                                            controllers.HomeController.listPlaces
 GET     /confirmFinishedProductInspection                      controllers.BeaconController.confirmFinishedProductInspection(serial: String, bleAddress: String)
 POST    /createFinishedProductInspection                       controllers.BeaconController.createFinishedProductInspection

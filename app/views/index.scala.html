@@ -1,26 +1,17 @@
+@import forms.Show
 @(show: Form[Show])(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader)
 
 @main(Messages("Home")) {
-<form method="POST" action="/beacons/show">
-    <div class="form-row">
-        <div class="col-md-2 mb-3">
-            <label for="date_start">start_date</label>
-            <input type="datetime" class="form-control" id="date_start" placeholder="date_start">
-        </div>
-        <div class="col-md-2 mb-3">
-            <label for="date_end">end_date</label>
-            <input type="datetime" class="form-control" id="date_end" placeholder="date_end">
-        </div>
-        <div class="col-md-2 mb-3">
-            <label for="serial">serial</label>
-            <input type="text" class="form-control" id="serial" placeholder="serial">
-        </div>
-        <div class="col-md-2 mb-3">
-            <label for="ble_address">ble_address</label>
-            <input type="text" class="form-control" id="ble_address" placeholder="ble_address">
-        </div>
-    </div>
-    <button class="btn btn-primary" type="submit">submit_form</button>
-</form>
+    @* フォームが持つグローバルエラーを描画する *@
+    @show.globalError.map { error =>
+        @error.message
+    }
 
+    @helper.form(helper.CSRF(routes.BeaconController.show)) {
+        @helper.inputDate(show("date_start"))
+        @helper.inputDate(show("date_end"))
+        @helper.inputText(show("serial"))
+        @helper.inputText(show("ble_address"))
+        <input type="submit" value="show"/>
+    }
 }

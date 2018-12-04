@@ -46,8 +46,8 @@ class HomeController @Inject()(components: ControllerComponents)
 
   private val form = Form(
     mapping(
-      "date_start" -> sqlTimestamp,
-      "date_end" -> sqlTimestamp,
+      "date_start" -> localDate,
+      "date_end" -> localDate,
       "serial" -> text,
       "ble_address" -> text
     )(Show.apply)(Show.unapply)
@@ -55,17 +55,5 @@ class HomeController @Inject()(components: ControllerComponents)
 
   def index = Action { implicit request: Request[AnyContent] =>
     Ok(views.html.index(form))
-  }
-
-  def show: Action[AnyContent] = Action { implicit request: Request[AnyContent] =>
-    form
-      .bindFromRequest()
-      .fold(
-        { formWithErrors =>
-          BadRequest(views.html.index(formWithErrors))
-        }, { show =>
-          Ok(views.html.beacons.show(show))
-        }
-      )
   }
 }

@@ -1,2 +1,0 @@
-[error] [Error] C:\tools\cygwin\home\Kosuke\sources\sample\app\views\index.scala.html:24
-[error]                     <span class="input-group-text" id="inputGroupPrepend3">@</span>: Expected '}' but found '@'

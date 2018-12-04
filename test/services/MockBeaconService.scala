@@ -1,5 +1,6 @@
 package services
 
+import java.time.LocalDate
 import java.time.ZonedDateTime._
 
 import models.Beacon
@@ -15,11 +16,11 @@ class MockBeaconService extends BeaconService {
 
   override def getBySerialAndBleAddress(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]] = Try(Some(Beacon(Some(1L), "exists", "exists", 0L, now, Some(now), None, now, now)))
 
-  override def create(beacon: Beacon)(implicit session: DBSession): Long = 1L
+  override def create(beacon: Beacon)(implicit session: DBSession = AutoSession): Long = 1L
 
-  override def update(beacon: Beacon)(implicit session: DBSession): Int = 1
+  override def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int = 1
 
-  override def confirmFinishedProductInspection(serial: String, bleAddress: String): JsObject = {
+  override def confirmFinishedProductInspection(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): JsObject = {
     val beaconBySerialAndBleAddress = getBySerialAndBleAddress(serial, bleAddress).getOrElse(None)
     val beaconBySerial = getBySerial(serial).getOrElse(None)
     val beaconByBleAddress = getByBleAddress(bleAddress).getOrElse(None)
@@ -42,7 +43,7 @@ class MockBeaconService extends BeaconService {
     })
   }
 
-  override def confirmPackaging(serial: String, bleAddress: String): JsObject = {
+  override def confirmPackaging(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): JsObject = {
     val beaconBySerialAndBleAddress = getBySerialAndBleAddress(serial, bleAddress).getOrElse(None)
     val beaconBySerial = getBySerial(serial).getOrElse(None)
     val beaconByBleAddress = getByBleAddress(bleAddress).getOrElse(None)
@@ -92,4 +93,10 @@ class MockBeaconService extends BeaconService {
       }
     })
   }
+  override def show(dateStart: LocalDate, dateEnd: LocalDate, serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Seq[(Beacon, Int)]] = Try {
+    Seq{
+      (Beacon(Some(1L), "exists", "not_exists", 0L, now, Some(now), None, now, now),1)
+    }
+  }
+
 }
