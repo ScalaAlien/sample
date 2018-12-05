@@ -42,7 +42,7 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Dec 04 20:39:32 JST 2018
+                  DATE: Wed Dec 05 20:20:30 JST 2018
                   SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/common/footer.scala.html
                   HASH: 8dbd6ab1d8ec76ec3cd7a8e18b8c7b99972178cf
                   MATRIX: 745->1|841->4|868->5

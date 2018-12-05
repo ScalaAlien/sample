@@ -51,8 +51,8 @@ Seq[Any](format.raw/*2.1*/("""
 
     <!-- DataTables CDN -->
     <link rel="stylesheet" href="https://cdn.datatables.net/1.10.18/css/dataTables.bootstrap.min.css" integrity="sha384-VEpVDzPR2x8NbTDZ8NFW4AWbtT2g/ollEzX/daZdW/YvUBlbgVtsxMftnJ84k0Cn" crossorigin="anonymous">
-    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js"></script>
-    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap.min.js"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/jquery.dataTables.min.js" integrity="sha384-r3v0/sXe5ocDydKBFcxP390rex2dEm9qN3Yv68S6uNX/F3b/RtMdGMUADZ8tabkz" crossorigin="anonymous"></script>
+    <script src="https://cdn.datatables.net/1.10.18/js/dataTables.bootstrap.min.js" integrity="sha384-7PXRkl4YJnEpP8uU4ev9652TTZSxrqC8uOpcV1ftVEC7LVyLZqqDUAaq+Y+lGgr9" crossorigin="anonymous"></script>
 
     <!-- <script src="""),_display_(/*32.23*/routes/*32.29*/.Assets.versioned("javascripts/vue.js")),format.raw/*32.68*/("""></script -->
     <link rel="stylesheet" media="screen" href=""""),_display_(/*33.50*/routes/*33.56*/.Assets.versioned("stylesheets/main.css")),format.raw/*33.97*/("""">
@@ -74,10 +74,10 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Tue Dec 04 20:44:22 JST 2018
+                  DATE: Wed Dec 05 20:20:30 JST 2018
                   SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/main.scala.html
-                  HASH: 637a44a68140117055e8d662960a784c11e8a7ec
-                  MATRIX: 785->1|992->115|1019->116|1095->166|1120->171|1216->240|1231->246|1263->257|1300->267|1328->274|1360->279|1398->291|1413->297|1443->306|1475->311|2943->1752|2958->1758|3018->1797|3108->1860|3123->1866|3185->1907|3232->1927|3247->1933|3308->1973
+                  HASH: 631368751813498e6d35e4a07ea2cefb7a00fb55
+                  MATRIX: 785->1|992->115|1019->116|1095->166|1120->171|1216->240|1231->246|1263->257|1300->267|1328->274|1360->279|1398->291|1413->297|1443->306|1475->311|3159->1968|3174->1974|3234->2013|3324->2076|3339->2082|3401->2123|3448->2143|3463->2149|3524->2189
                   LINES: 22->1|27->2|28->3|31->6|31->6|35->10|35->10|35->10|36->11|36->11|37->12|38->13|38->13|38->13|39->14|57->32|57->32|57->32|58->33|58->33|58->33|59->34|59->34|59->34
                   -- GENERATED --
               */

@@ -43,17 +43,4 @@ class HomeController @Inject()(components: ControllerComponents)
     val json = Json.toJson(Place.list)
     Ok(json)
   }
-
-  private val form = Form(
-    mapping(
-      "date_start" -> localDate,
-      "date_end" -> localDate,
-      "serial" -> text,
-      "ble_address" -> text
-    )(Show.apply)(Show.unapply)
-  )
-
-  def index = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index(form))
-  }
 }

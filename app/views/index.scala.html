@@ -1,17 +1,67 @@
 @import forms.Show
-@(show: Form[Show])(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader)
+@(show: Form[Show], beaconsOpt: Option[Seq[(models.Beacon, Int)]])(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader)
 
 @main(Messages("Home")) {
-    @* フォームが持つグローバルエラーを描画する *@
-    @show.globalError.map { error =>
+        @* フォームが持つグローバルエラーを描画する *@
+        @show.globalError.map { error =>
         @error.message
     }
-
-    @helper.form(helper.CSRF(routes.BeaconController.show)) {
-        @helper.inputDate(show("date_start"))
-        @helper.inputDate(show("date_end"))
-        @helper.inputText(show("serial"))
-        @helper.inputText(show("ble_address"))
-        <input type="submit" value="show"/>
-    }
+    <div class="left">
+        @helper.form(helper.CSRF(routes.BeaconController.show)) {
+            @helper.inputDate(show("date_start"))
+            @helper.inputDate(show("date_end"))
+            @helper.inputText(show("serial"))
+            @helper.inputText(show("ble_address"))
+            <input type="submit" value="show"/>
+        }
+    </div>
+    <div class="middle">
+        @if(beaconsOpt.isDefined) {
+            <table id="example" class="table table-striped table-bordered" style="width:100%">
+                <thead>
+                <tr>
+                    <th>id</th>
+                    <th>serial</th>
+                    <th>bleAddress</th>
+                    <th>ng</th>
+                    <th>finishedProductInspectionAt</th>
+                    <th>packagingAt</th>
+                    <th>visualInspectionDefectiveAt</th>
+                    <th>createAt</th>
+                    <th>updateAt</th>
+                </tr>
+                </thead>
+                <tbody>
+                @for((beacon, count) <- beaconsOpt.get) {
+                    <tr>
+                        <td>@beacon.id</td>
+                        <td>@beacon.serial</td>
+                        <td>@beacon.bleAddress</td>
+                        <td>@beacon.ng</td>
+                        <td>@beacon.finishedProductInspectionAt</td>
+                        <td>@beacon.packagingAt</td>
+                        <td>@beacon.visualInspectionDefectiveAt</td>
+                        <td>@beacon.createAt</td>
+                        <td>@beacon.updateAt</td>
+                    </tr>
+                }
+                </tbody>
+                <tfoot>
+                <tr>
+                    <th>id</th>
+                    <th>serial</th>
+                    <th>bleAddress</th>
+                    <th>ng</th>
+                    <th>finishedProductInspectionAt</th>
+                    <th>packagingAt</th>
+                    <th>visualInspectionDefectiveAt</th>
+                    <th>createAt</th>
+                    <th>updateAt</th>
+                </tr>
+                </tfoot>
+            </table>
+        }
+    </div>
+    <div class="right">
+    </div>
 }

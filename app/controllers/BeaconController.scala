@@ -137,7 +137,7 @@ class BeaconController @Inject()(
   )
 
   def index = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index(form))
+    Ok(views.html.index(form, None))
   }
 
   def show: Action[AnyContent] = Action {
@@ -147,7 +147,7 @@ class BeaconController @Inject()(
         .fold(
           { formWithErrors =>
             println(formWithErrors)
-            BadRequest(views.html.index(formWithErrors))
+            BadRequest(views.html.index(formWithErrors, None))
           }, { show =>
             beaconService
               .show(show.date_start,
@@ -156,7 +156,7 @@ class BeaconController @Inject()(
                     show.ble_address)
               .map { beacons =>
                 println(beacons)
-                Ok(views.html.show(beacons))
+                Ok(views.html.index(form, Some(beacons)))
               }
               .getOrElse(InternalServerError(Messages("InternalError")))
           }

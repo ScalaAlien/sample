@@ -9,7 +9,7 @@
 		extra-sbtVersion="1.0"
 		conf="provided"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20181204213005"/>
+		date="20181205213823"/>
 	<dependencies>
 		<module organisation="org.scala-sbt" name="sbt">
 			<revision name="1.2.1" status="release" pubdate="20180807082342" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sbt/sbt" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="1">
@@ -626,14 +626,13 @@
 					</artifact>
 				</artifacts>
 			</revision>
-			<revision name="1.0.0" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
+			<revision name="1.0.0" status="release" pubdate="20150818044630" resolver="public" artresolver="public" evicted="latest-revision" evicted-reason="" homepage="http://scala-sbt.org" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
+				<license name="BSD" url="http://opensource.org/licenses/BSD-2-Clause"/>
+				<metadata-artifact status="successful" details="" size="1402" time="555" location="C:\Users\Kosuke\.ivy2\cache\org.scala-sbt\launcher-interface\ivy-1.0.0.xml" searched="true" original-local-location="C:\Users\Kosuke\.ivy2\cache\org.scala-sbt\launcher-interface\ivy-1.0.0.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/launcher-interface/1.0.0/launcher-interface-1.0.0.pom"/>
 				<evicted-by rev="1.0.4"/>
-				<caller organisation="org.scala-sbt" name="testing_2.12" conf="compile, runtime" rev="1.0.4" rev-constraint-default="1.0.4" rev-constraint-dynamic="1.0.4" callerrev="1.2.1"/>
 				<caller organisation="org.scala-sbt" name="librarymanagement-core_2.12" conf="compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.2.0"/>
-				<caller organisation="org.scala-sbt" name="main_2.12" conf="compile, runtime" rev="1.0.4" rev-constraint-default="1.0.4" rev-constraint-dynamic="1.0.4" callerrev="1.2.1"/>
 				<caller organisation="org.scala-sbt" name="zinc-compile-core_2.12" conf="compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.2.1"/>
 				<caller organisation="org.scala-sbt" name="zinc-classpath_2.12" conf="compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.2.1"/>
-				<caller organisation="org.scala-sbt" name="command_2.12" conf="compile, runtime" rev="1.0.4" rev-constraint-default="1.0.4" rev-constraint-dynamic="1.0.4" callerrev="1.2.1"/>
 				<artifacts>
 				</artifacts>
 			</revision>
@@ -830,6 +829,28 @@
 				</artifacts>
 			</revision>
 		</module>
+		<module organisation="jline" name="jline">
+			<revision name="2.14.4" status="release" pubdate="20170606153737" resolver="sbt-chain" artresolver="sbt-chain" evicted="latest-revision" evicted-reason="" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
+				<license name="The BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="5087" time="0" location="C:\Users\Kosuke\.ivy2\cache\jline\jline\ivy-2.14.4.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/jline/jline/2.14.4/jline-2.14.4.pom"/>
+				<evicted-by rev="2.14.6"/>
+				<caller organisation="org.scala-sbt" name="completion_2.12" conf="compile, runtime" rev="2.14.6" rev-constraint-default="2.14.6" rev-constraint-dynamic="2.14.6" callerrev="1.2.1"/>
+				<caller organisation="org.scala-sbt" name="util-logging_2.12" conf="compile, runtime" rev="2.14.4" rev-constraint-default="2.14.4" rev-constraint-dynamic="2.14.4" callerrev="1.2.0"/>
+				<artifacts>
+				</artifacts>
+			</revision>
+			<revision name="2.14.6" status="release" pubdate="20180326051840" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="14">
+				<license name="The BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
+				<metadata-artifact status="no" details="" size="5173" time="0" location="C:\Users\Kosuke\.ivy2\cache\jline\jline\ivy-2.14.6.xml" searched="false" origin-is-local="false" origin-location="file:/C:/Users/Kosuke/.sbt/preloaded/jline/jline/2.14.6/ivys/ivy.xml"/>
+				<caller organisation="org.scala-sbt" name="completion_2.12" conf="compile, runtime" rev="2.14.6" rev-constraint-default="2.14.6" rev-constraint-dynamic="2.14.6" callerrev="1.2.1"/>
+				<caller organisation="org.scala-sbt" name="util-logging_2.12" conf="compile, runtime" rev="2.14.4" rev-constraint-default="2.14.4" rev-constraint-dynamic="2.14.4" callerrev="1.2.0"/>
+				<artifacts>
+					<artifact name="jline" type="jar" ext="jar" status="no" details="" size="268780" time="0" location="C:\Users\Kosuke\.ivy2\cache\jline\jline\jars\jline-2.14.6.jar">
+						<origin-location is-local="false" location="file:/C:/Users/Kosuke/.sbt/preloaded/jline/jline/2.14.6/jars/jline.jar"/>
+					</artifact>
+				</artifacts>
+			</revision>
+		</module>
 		<module organisation="org.scala-sbt" name="util-interface">
 			<revision name="1.2.0" status="release" pubdate="20180730052244" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sbt/util" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="22">
 				<license name="BSD New" url="https://github.com/sbt/sbt/blob/0.13/LICENSE"/>
@@ -989,25 +1010,6 @@
 				<evicted-by rev="1.0.6"/>
 				<caller organisation="org.scala-sbt" name="librarymanagement-core_2.12" conf="compile, runtime" rev="1.0.5" rev-constraint-default="1.0.5" rev-constraint-dynamic="1.0.5" callerrev="1.2.0"/>
 				<caller organisation="org.scala-sbt" name="sbinary_2.12" conf="compile, runtime" rev="1.0.5" rev-constraint-default="1.0.5" rev-constraint-dynamic="1.0.5" callerrev="0.4.4"/>
-				<artifacts>
-				</artifacts>
-			</revision>
-		</module>
-		<module organisation="jline" name="jline">
-			<revision name="2.14.6" status="release" pubdate="20180326051840" resolver="sbt-chain" artresolver="sbt-chain" homepage="" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="14">
-				<license name="The BSD License" url="http://www.opensource.org/licenses/bsd-license.php"/>
-				<metadata-artifact status="no" details="" size="5173" time="0" location="C:\Users\Kosuke\.ivy2\cache\jline\jline\ivy-2.14.6.xml" searched="false" origin-is-local="false" origin-location="file:/C:/Users/Kosuke/.sbt/preloaded/jline/jline/2.14.6/ivys/ivy.xml"/>
-				<caller organisation="org.scala-sbt" name="completion_2.12" conf="compile, runtime" rev="2.14.6" rev-constraint-default="2.14.6" rev-constraint-dynamic="2.14.6" callerrev="1.2.1"/>
-				<caller organisation="org.scala-sbt" name="util-logging_2.12" conf="compile, runtime" rev="2.14.4" rev-constraint-default="2.14.4" rev-constraint-dynamic="2.14.4" callerrev="1.2.0"/>
-				<artifacts>
-					<artifact name="jline" type="jar" ext="jar" status="no" details="" size="268780" time="0" location="C:\Users\Kosuke\.ivy2\cache\jline\jline\jars\jline-2.14.6.jar">
-						<origin-location is-local="false" location="file:/C:/Users/Kosuke/.sbt/preloaded/jline/jline/2.14.6/jars/jline.jar"/>
-					</artifact>
-				</artifacts>
-			</revision>
-			<revision name="2.14.4" evicted="latest-revision" evicted-reason="" downloaded="false" searched="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
-				<evicted-by rev="2.14.6"/>
-				<caller organisation="org.scala-sbt" name="util-logging_2.12" conf="compile, runtime" rev="2.14.4" rev-constraint-default="2.14.4" rev-constraint-dynamic="2.14.4" callerrev="1.2.0"/>
 				<artifacts>
 				</artifacts>
 			</revision>
