@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/Users/Kosuke/Desktop/sample/conf/routes
-// @DATE:Sun Dec 09 20:55:25 JST 2018
+// @SOURCE:C:/tools/cygwin/home/Kosuke/sources/sample/conf/routes
+// @DATE:Sun Dec 09 23:04:33 JST 2018
 
 package router
 
@@ -15,7 +15,7 @@ class Routes(
   override val errorHandler: play.api.http.HttpErrorHandler, 
   // @LINE:7
   BeaconController_1: controllers.BeaconController,
-  // @LINE:17
+  // @LINE:18
   Assets_0: controllers.Assets,
   val prefix: String
 ) extends GeneratedRouter {
@@ -24,7 +24,7 @@ class Routes(
    def this(errorHandler: play.api.http.HttpErrorHandler,
     // @LINE:7
     BeaconController_1: controllers.BeaconController,
-    // @LINE:17
+    // @LINE:18
     Assets_0: controllers.Assets
   ) = this(errorHandler, BeaconController_1, Assets_0, "/")
 
@@ -39,7 +39,8 @@ class Routes(
 
   def documentation = List(
     ("""GET""", this.prefix, """controllers.BeaconController.index"""),
-    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """show""", """controllers.BeaconController.show"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """selectByDate""", """controllers.BeaconController.selectByDate"""),
+    ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """selectByItem""", """controllers.BeaconController.selectByItem"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """confirmFinishedProductInspection""", """controllers.BeaconController.confirmFinishedProductInspection(serial:String, bleAddress:String)"""),
     ("""GET""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """confirmPackaging""", """controllers.BeaconController.confirmPackaging(serial:String, bleAddress:String)"""),
     ("""POST""", this.prefix + (if(this.prefix.endsWith("/")) "" else "/") + """createFinishedProductInspection""", """controllers.BeaconController.createFinishedProductInspection"""),
@@ -73,28 +74,46 @@ class Routes(
   )
 
   // @LINE:8
-  private[this] lazy val controllers_BeaconController_show1_route = Route("POST",
-    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("show")))
+  private[this] lazy val controllers_BeaconController_selectByDate1_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("selectByDate")))
   )
-  private[this] lazy val controllers_BeaconController_show1_invoker = createInvoker(
-    BeaconController_1.show,
+  private[this] lazy val controllers_BeaconController_selectByDate1_invoker = createInvoker(
+    BeaconController_1.selectByDate,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
       "controllers.BeaconController",
-      "show",
+      "selectByDate",
       Nil,
       "POST",
-      this.prefix + """show""",
+      this.prefix + """selectByDate""",
       """""",
       Seq()
     )
   )
 
   // @LINE:9
-  private[this] lazy val controllers_BeaconController_confirmFinishedProductInspection2_route = Route("GET",
+  private[this] lazy val controllers_BeaconController_selectByItem2_route = Route("POST",
+    PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("selectByItem")))
+  )
+  private[this] lazy val controllers_BeaconController_selectByItem2_invoker = createInvoker(
+    BeaconController_1.selectByItem,
+    play.api.routing.HandlerDef(this.getClass.getClassLoader,
+      "router",
+      "controllers.BeaconController",
+      "selectByItem",
+      Nil,
+      "POST",
+      this.prefix + """selectByItem""",
+      """""",
+      Seq()
+    )
+  )
+
+  // @LINE:10
+  private[this] lazy val controllers_BeaconController_confirmFinishedProductInspection3_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("confirmFinishedProductInspection")))
   )
-  private[this] lazy val controllers_BeaconController_confirmFinishedProductInspection2_invoker = createInvoker(
+  private[this] lazy val controllers_BeaconController_confirmFinishedProductInspection3_invoker = createInvoker(
     BeaconController_1.confirmFinishedProductInspection(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -108,11 +127,11 @@ class Routes(
     )
   )
 
-  // @LINE:10
-  private[this] lazy val controllers_BeaconController_confirmPackaging3_route = Route("GET",
+  // @LINE:11
+  private[this] lazy val controllers_BeaconController_confirmPackaging4_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("confirmPackaging")))
   )
-  private[this] lazy val controllers_BeaconController_confirmPackaging3_invoker = createInvoker(
+  private[this] lazy val controllers_BeaconController_confirmPackaging4_invoker = createInvoker(
     BeaconController_1.confirmPackaging(fakeValue[String], fakeValue[String]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -126,11 +145,11 @@ class Routes(
     )
   )
 
-  // @LINE:11
-  private[this] lazy val controllers_BeaconController_createFinishedProductInspection4_route = Route("POST",
+  // @LINE:12
+  private[this] lazy val controllers_BeaconController_createFinishedProductInspection5_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("createFinishedProductInspection")))
   )
-  private[this] lazy val controllers_BeaconController_createFinishedProductInspection4_invoker = createInvoker(
+  private[this] lazy val controllers_BeaconController_createFinishedProductInspection5_invoker = createInvoker(
     BeaconController_1.createFinishedProductInspection,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -144,11 +163,11 @@ class Routes(
     )
   )
 
-  // @LINE:12
-  private[this] lazy val controllers_BeaconController_updateFinishedProductInspection5_route = Route("POST",
+  // @LINE:13
+  private[this] lazy val controllers_BeaconController_updateFinishedProductInspection6_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateFinishedProductInspection")))
   )
-  private[this] lazy val controllers_BeaconController_updateFinishedProductInspection5_invoker = createInvoker(
+  private[this] lazy val controllers_BeaconController_updateFinishedProductInspection6_invoker = createInvoker(
     BeaconController_1.updateFinishedProductInspection,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -162,11 +181,11 @@ class Routes(
     )
   )
 
-  // @LINE:13
-  private[this] lazy val controllers_BeaconController_updateVisualInspection6_route = Route("POST",
+  // @LINE:14
+  private[this] lazy val controllers_BeaconController_updateVisualInspection7_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updateVisualInspection")))
   )
-  private[this] lazy val controllers_BeaconController_updateVisualInspection6_invoker = createInvoker(
+  private[this] lazy val controllers_BeaconController_updateVisualInspection7_invoker = createInvoker(
     BeaconController_1.updateVisualInspection,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -180,11 +199,11 @@ class Routes(
     )
   )
 
-  // @LINE:14
-  private[this] lazy val controllers_BeaconController_updatePackaging7_route = Route("POST",
+  // @LINE:15
+  private[this] lazy val controllers_BeaconController_updatePackaging8_route = Route("POST",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("updatePackaging")))
   )
-  private[this] lazy val controllers_BeaconController_updatePackaging7_invoker = createInvoker(
+  private[this] lazy val controllers_BeaconController_updatePackaging8_invoker = createInvoker(
     BeaconController_1.updatePackaging,
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -198,11 +217,11 @@ class Routes(
     )
   )
 
-  // @LINE:17
-  private[this] lazy val controllers_Assets_versioned8_route = Route("GET",
+  // @LINE:18
+  private[this] lazy val controllers_Assets_versioned9_route = Route("GET",
     PathPattern(List(StaticPart(this.prefix), StaticPart(this.defaultPrefix), StaticPart("assets/"), DynamicPart("file", """.+""",false)))
   )
-  private[this] lazy val controllers_Assets_versioned8_invoker = createInvoker(
+  private[this] lazy val controllers_Assets_versioned9_invoker = createInvoker(
     Assets_0.versioned(fakeValue[String], fakeValue[Asset]),
     play.api.routing.HandlerDef(this.getClass.getClassLoader,
       "router",
@@ -226,51 +245,57 @@ class Routes(
       }
   
     // @LINE:8
-    case controllers_BeaconController_show1_route(params@_) =>
+    case controllers_BeaconController_selectByDate1_route(params@_) =>
       call { 
-        controllers_BeaconController_show1_invoker.call(BeaconController_1.show)
+        controllers_BeaconController_selectByDate1_invoker.call(BeaconController_1.selectByDate)
       }
   
     // @LINE:9
-    case controllers_BeaconController_confirmFinishedProductInspection2_route(params@_) =>
-      call(params.fromQuery[String]("serial", None), params.fromQuery[String]("bleAddress", None)) { (serial, bleAddress) =>
-        controllers_BeaconController_confirmFinishedProductInspection2_invoker.call(BeaconController_1.confirmFinishedProductInspection(serial, bleAddress))
+    case controllers_BeaconController_selectByItem2_route(params@_) =>
+      call { 
+        controllers_BeaconController_selectByItem2_invoker.call(BeaconController_1.selectByItem)
       }
   
     // @LINE:10
-    case controllers_BeaconController_confirmPackaging3_route(params@_) =>
+    case controllers_BeaconController_confirmFinishedProductInspection3_route(params@_) =>
       call(params.fromQuery[String]("serial", None), params.fromQuery[String]("bleAddress", None)) { (serial, bleAddress) =>
-        controllers_BeaconController_confirmPackaging3_invoker.call(BeaconController_1.confirmPackaging(serial, bleAddress))
+        controllers_BeaconController_confirmFinishedProductInspection3_invoker.call(BeaconController_1.confirmFinishedProductInspection(serial, bleAddress))
       }
   
     // @LINE:11
-    case controllers_BeaconController_createFinishedProductInspection4_route(params@_) =>
-      call { 
-        controllers_BeaconController_createFinishedProductInspection4_invoker.call(BeaconController_1.createFinishedProductInspection)
+    case controllers_BeaconController_confirmPackaging4_route(params@_) =>
+      call(params.fromQuery[String]("serial", None), params.fromQuery[String]("bleAddress", None)) { (serial, bleAddress) =>
+        controllers_BeaconController_confirmPackaging4_invoker.call(BeaconController_1.confirmPackaging(serial, bleAddress))
       }
   
     // @LINE:12
-    case controllers_BeaconController_updateFinishedProductInspection5_route(params@_) =>
+    case controllers_BeaconController_createFinishedProductInspection5_route(params@_) =>
       call { 
-        controllers_BeaconController_updateFinishedProductInspection5_invoker.call(BeaconController_1.updateFinishedProductInspection)
+        controllers_BeaconController_createFinishedProductInspection5_invoker.call(BeaconController_1.createFinishedProductInspection)
       }
   
     // @LINE:13
-    case controllers_BeaconController_updateVisualInspection6_route(params@_) =>
+    case controllers_BeaconController_updateFinishedProductInspection6_route(params@_) =>
       call { 
-        controllers_BeaconController_updateVisualInspection6_invoker.call(BeaconController_1.updateVisualInspection)
+        controllers_BeaconController_updateFinishedProductInspection6_invoker.call(BeaconController_1.updateFinishedProductInspection)
       }
   
     // @LINE:14
-    case controllers_BeaconController_updatePackaging7_route(params@_) =>
+    case controllers_BeaconController_updateVisualInspection7_route(params@_) =>
       call { 
-        controllers_BeaconController_updatePackaging7_invoker.call(BeaconController_1.updatePackaging)
+        controllers_BeaconController_updateVisualInspection7_invoker.call(BeaconController_1.updateVisualInspection)
       }
   
-    // @LINE:17
-    case controllers_Assets_versioned8_route(params@_) =>
+    // @LINE:15
+    case controllers_BeaconController_updatePackaging8_route(params@_) =>
+      call { 
+        controllers_BeaconController_updatePackaging8_invoker.call(BeaconController_1.updatePackaging)
+      }
+  
+    // @LINE:18
+    case controllers_Assets_versioned9_route(params@_) =>
       call(Param[String]("path", Right("/public")), params.fromPath[Asset]("file", None)) { (path, file) =>
-        controllers_Assets_versioned8_invoker.call(Assets_0.versioned(path, file))
+        controllers_Assets_versioned9_invoker.call(Assets_0.versioned(path, file))
       }
   }
 }

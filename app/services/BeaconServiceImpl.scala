@@ -13,10 +13,17 @@ class BeaconServiceImpl extends BeaconService {
 
   override def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int = Beacon.update(beacon)
 
-  override def show(dateStart: LocalDate, dateEnd: LocalDate, serial: String, bleAddress: String)(implicit session: DBSession = AutoSession) = Try {
+  override def selectByDate(dateStart: LocalDate, dateEnd: LocalDate)(implicit session: DBSession = AutoSession): Try[Seq[(Beacon, Int)]] = Try {
     val b = Beacon.syntax("b")
     withSQL {
       select(b.result.*).from(Beacon as b).where.between(b.updateAt, dateStart, dateEnd)
+    }.map(rs => (Beacon(b)(rs), rs.int(1))).list().apply().toVector
+  }
+
+  override def selectByItem(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Seq[(Beacon, Int)]] = Try {
+    val b = Beacon.syntax("b")
+    withSQL {
+      select(b.result.*).from(Beacon as b)
     }.map(rs => (Beacon(b)(rs), rs.int(1))).list().apply().toVector
   }
 

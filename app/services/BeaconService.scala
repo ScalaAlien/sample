@@ -14,7 +14,9 @@ trait BeaconService {
 
   def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int
 
-  def show(dateStart: LocalDate, dateEnd: LocalDate, serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Seq[(Beacon, Int)]]
+  def selectByDate(dateStart: LocalDate, dateEnd: LocalDate)(implicit session: DBSession = AutoSession): Try[Seq[(Beacon, Int)]]
+
+  def selectByItem(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Seq[(Beacon, Int)]]
 
   def getBySerial(serial: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]]
 

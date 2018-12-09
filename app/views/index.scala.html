@@ -1,18 +1,23 @@
-@import forms.Show
-@(show: Form[Show], beaconsOpt: Option[Seq[(models.Beacon, Int)]])(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader)
+@(date: Form[Date], item: Form[Item], beaconsOpt: Option[Seq[(models.Beacon, Int)]])(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader)
 
 @main(Messages("Home")) {
-        @* フォームが持つグローバルエラーを描画する *@
-        @show.globalError.map { error =>
-        @error.message
+    @* フォームが持つグローバルエラーを描画する *@
+    @date.globalError.map { error =>
+    @error.message
+    }
+    @item.globalError.map { error =>
+    @error.message
     }
     <div class="left">
-        @helper.form(helper.CSRF(routes.BeaconController.show)) {
-            @helper.inputDate(show("date_start"))
-            @helper.inputDate(show("date_end"))
-            @helper.inputText(show("serial"))
-            @helper.inputText(show("ble_address"))
-            <input type="submit" value="show"/>
+        @helper.form(helper.CSRF(routes.BeaconController.selectByDate)) {
+            @helper.inputDate(date("date_start"))
+            @helper.inputDate(date("date_end"))
+            <input type="submit" value="submit"/>
+        }
+        @helper.form(helper.CSRF(routes.BeaconController.selectByItem)) {
+        @helper.inputText(item("serial"))
+        @helper.inputText(item("ble_address"))
+        <input type="submit" value="submit"/>
         }
     </div>
     <div class="middle">

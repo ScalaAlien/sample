@@ -15,35 +15,40 @@ import play.api.templates.PlayMagic._
 import play.api.mvc._
 import play.api.data._
 import forms._
-/*1.2*/import forms.Show
 
-object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template5[Form[Show],Option[Seq[scala.Tuple2[models.Beacon, Int]]],MessagesProvider,Flash,RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
+object index extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.HtmlFormat.Appendable,_root_.play.twirl.api.Format[play.twirl.api.HtmlFormat.Appendable]](play.twirl.api.HtmlFormat) with _root_.play.twirl.api.Template6[Form[Date],Form[Item],Option[Seq[scala.Tuple2[models.Beacon, Int]]],MessagesProvider,Flash,RequestHeader,play.twirl.api.HtmlFormat.Appendable] {
 
   /**/
-  def apply/*2.2*/(show: Form[Show], beaconsOpt: Option[Seq[(models.Beacon, Int)]])(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
+  def apply/*1.2*/(date: Form[Date], item: Form[Item], beaconsOpt: Option[Seq[(models.Beacon, Int)]])(implicit messagesProvider: MessagesProvider, flash: Flash, request: RequestHeader):play.twirl.api.HtmlFormat.Appendable = {
     _display_ {
       {
 
 
-Seq[Any](format.raw/*2.150*/("""
+Seq[Any](format.raw/*1.168*/("""
 
-"""),_display_(/*4.2*/main(Messages("Home"))/*4.24*/ {_display_(Seq[Any](format.raw/*4.26*/("""
-        """),format.raw/*5.35*/("""
-        """),_display_(/*6.10*/show/*6.14*/.globalError.map/*6.30*/ { error =>_display_(Seq[Any](format.raw/*6.41*/("""
-        """),_display_(/*7.10*/error/*7.15*/.message),format.raw/*7.23*/("""
-    """)))}),format.raw/*8.6*/("""
-    """),format.raw/*9.5*/("""<div class="left">
-        """),_display_(/*10.10*/helper/*10.16*/.form(helper.CSRF(routes.BeaconController.show))/*10.64*/ {_display_(Seq[Any](format.raw/*10.66*/("""
-            """),_display_(/*11.14*/helper/*11.20*/.inputDate(show("date_start"))),format.raw/*11.50*/("""
-            """),_display_(/*12.14*/helper/*12.20*/.inputDate(show("date_end"))),format.raw/*12.48*/("""
-            """),_display_(/*13.14*/helper/*13.20*/.inputText(show("serial"))),format.raw/*13.46*/("""
-            """),_display_(/*14.14*/helper/*14.20*/.inputText(show("ble_address"))),format.raw/*14.51*/("""
-            """),format.raw/*15.13*/("""<input type="submit" value="show"/>
+"""),_display_(/*3.2*/main(Messages("Home"))/*3.24*/ {_display_(Seq[Any](format.raw/*3.26*/("""
+    """),format.raw/*4.31*/("""
+    """),_display_(/*5.6*/date/*5.10*/.globalError.map/*5.26*/ { error =>_display_(Seq[Any](format.raw/*5.37*/("""
+    """),_display_(/*6.6*/error/*6.11*/.message),format.raw/*6.19*/("""
+    """)))}),format.raw/*7.6*/("""
+    """),_display_(/*8.6*/item/*8.10*/.globalError.map/*8.26*/ { error =>_display_(Seq[Any](format.raw/*8.37*/("""
+    """),_display_(/*9.6*/error/*9.11*/.message),format.raw/*9.19*/("""
+    """)))}),format.raw/*10.6*/("""
+    """),format.raw/*11.5*/("""<div class="left">
+        """),_display_(/*12.10*/helper/*12.16*/.form(helper.CSRF(routes.BeaconController.selectByDate))/*12.72*/ {_display_(Seq[Any](format.raw/*12.74*/("""
+            """),_display_(/*13.14*/helper/*13.20*/.inputDate(date("date_start"))),format.raw/*13.50*/("""
+            """),_display_(/*14.14*/helper/*14.20*/.inputDate(date("date_end"))),format.raw/*14.48*/("""
+            """),format.raw/*15.13*/("""<input type="submit" value="submit"/>
         """)))}),format.raw/*16.10*/("""
-    """),format.raw/*17.5*/("""</div>
+        """),_display_(/*17.10*/helper/*17.16*/.form(helper.CSRF(routes.BeaconController.selectByItem))/*17.72*/ {_display_(Seq[Any](format.raw/*17.74*/("""
+        """),_display_(/*18.10*/helper/*18.16*/.inputText(item("serial"))),format.raw/*18.42*/("""
+        """),_display_(/*19.10*/helper/*19.16*/.inputText(item("ble_address"))),format.raw/*19.47*/("""
+        """),format.raw/*20.9*/("""<input type="submit" value="submit"/>
+        """)))}),format.raw/*21.10*/("""
+    """),format.raw/*22.5*/("""</div>
     <div class="middle">
-        """),_display_(/*19.10*/if(beaconsOpt.isDefined)/*19.34*/ {_display_(Seq[Any](format.raw/*19.36*/("""
-            """),format.raw/*20.13*/("""<table id="example" class="table table-striped table-bordered" style="width:100%">
+        """),_display_(/*24.10*/if(beaconsOpt.isDefined)/*24.34*/ {_display_(Seq[Any](format.raw/*24.36*/("""
+            """),format.raw/*25.13*/("""<table id="example" class="table table-striped table-bordered" style="width:100%">
                 <thead>
                 <tr>
                     <th>id</th>
@@ -58,20 +63,20 @@ Seq[Any](format.raw/*2.150*/("""
                 </tr>
                 </thead>
                 <tbody>
-                """),_display_(/*35.18*/for((beacon, count) <- beaconsOpt.get) yield /*35.56*/ {_display_(Seq[Any](format.raw/*35.58*/("""
-                    """),format.raw/*36.21*/("""<tr>
-                        <td>"""),_display_(/*37.30*/beacon/*37.36*/.id),format.raw/*37.39*/("""</td>
-                        <td>"""),_display_(/*38.30*/beacon/*38.36*/.serial),format.raw/*38.43*/("""</td>
-                        <td>"""),_display_(/*39.30*/beacon/*39.36*/.bleAddress),format.raw/*39.47*/("""</td>
-                        <td>"""),_display_(/*40.30*/beacon/*40.36*/.ng),format.raw/*40.39*/("""</td>
-                        <td>"""),_display_(/*41.30*/beacon/*41.36*/.finishedProductInspectionAt),format.raw/*41.64*/("""</td>
-                        <td>"""),_display_(/*42.30*/beacon/*42.36*/.packagingAt),format.raw/*42.48*/("""</td>
-                        <td>"""),_display_(/*43.30*/beacon/*43.36*/.visualInspectionDefectiveAt),format.raw/*43.64*/("""</td>
-                        <td>"""),_display_(/*44.30*/beacon/*44.36*/.createAt),format.raw/*44.45*/("""</td>
-                        <td>"""),_display_(/*45.30*/beacon/*45.36*/.updateAt),format.raw/*45.45*/("""</td>
+                """),_display_(/*40.18*/for((beacon, count) <- beaconsOpt.get) yield /*40.56*/ {_display_(Seq[Any](format.raw/*40.58*/("""
+                    """),format.raw/*41.21*/("""<tr>
+                        <td>"""),_display_(/*42.30*/beacon/*42.36*/.id),format.raw/*42.39*/("""</td>
+                        <td>"""),_display_(/*43.30*/beacon/*43.36*/.serial),format.raw/*43.43*/("""</td>
+                        <td>"""),_display_(/*44.30*/beacon/*44.36*/.bleAddress),format.raw/*44.47*/("""</td>
+                        <td>"""),_display_(/*45.30*/beacon/*45.36*/.ng),format.raw/*45.39*/("""</td>
+                        <td>"""),_display_(/*46.30*/beacon/*46.36*/.finishedProductInspectionAt),format.raw/*46.64*/("""</td>
+                        <td>"""),_display_(/*47.30*/beacon/*47.36*/.packagingAt),format.raw/*47.48*/("""</td>
+                        <td>"""),_display_(/*48.30*/beacon/*48.36*/.visualInspectionDefectiveAt),format.raw/*48.64*/("""</td>
+                        <td>"""),_display_(/*49.30*/beacon/*49.36*/.createAt),format.raw/*49.45*/("""</td>
+                        <td>"""),_display_(/*50.30*/beacon/*50.36*/.updateAt),format.raw/*50.45*/("""</td>
                     </tr>
-                """)))}),format.raw/*47.18*/("""
-                """),format.raw/*48.17*/("""</tbody>
+                """)))}),format.raw/*52.18*/("""
+                """),format.raw/*53.17*/("""</tbody>
                 <tfoot>
                 <tr>
                     <th>id</th>
@@ -86,8 +91,8 @@ Seq[Any](format.raw/*2.150*/("""
                 </tr>
                 </tfoot>
             </table>
-        """)))}),format.raw/*63.10*/("""
-    """),format.raw/*64.5*/("""</div>
+        """)))}),format.raw/*68.10*/("""
+    """),format.raw/*69.5*/("""</div>
     <div class="right">
     </div>
 """)))}))
@@ -95,9 +100,9 @@ Seq[Any](format.raw/*2.150*/("""
     }
   }
 
-  def render(show:Form[Show],beaconsOpt:Option[Seq[scala.Tuple2[models.Beacon, Int]]],messagesProvider:MessagesProvider,flash:Flash,request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply(show,beaconsOpt)(messagesProvider,flash,request)
+  def render(date:Form[Date],item:Form[Item],beaconsOpt:Option[Seq[scala.Tuple2[models.Beacon, Int]]],messagesProvider:MessagesProvider,flash:Flash,request:RequestHeader): play.twirl.api.HtmlFormat.Appendable = apply(date,item,beaconsOpt)(messagesProvider,flash,request)
 
-  def f:((Form[Show],Option[Seq[scala.Tuple2[models.Beacon, Int]]]) => (MessagesProvider,Flash,RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = (show,beaconsOpt) => (messagesProvider,flash,request) => apply(show,beaconsOpt)(messagesProvider,flash,request)
+  def f:((Form[Date],Form[Item],Option[Seq[scala.Tuple2[models.Beacon, Int]]]) => (MessagesProvider,Flash,RequestHeader) => play.twirl.api.HtmlFormat.Appendable) = (date,item,beaconsOpt) => (messagesProvider,flash,request) => apply(date,item,beaconsOpt)(messagesProvider,flash,request)
 
   def ref: this.type = this
 
@@ -106,11 +111,11 @@ Seq[Any](format.raw/*2.150*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Dec 09 20:55:26 JST 2018
-                  SOURCE: C:/Users/Kosuke/Desktop/sample/app/views/index.scala.html
-                  HASH: b9c3427e16d4e493b0f3e99744c66aef82d9a684
-                  MATRIX: 447->1|856->21|1100->169|1130->174|1160->196|1199->198|1236->234|1273->245|1285->249|1309->265|1357->276|1394->287|1407->292|1435->300|1471->307|1503->313|1559->342|1574->348|1631->396|1671->398|1713->413|1728->419|1779->449|1821->464|1836->470|1885->498|1927->513|1942->519|1989->545|2031->560|2046->566|2098->597|2140->611|2217->657|2250->663|2320->706|2353->730|2393->732|2435->746|3064->1348|3118->1386|3158->1388|3208->1410|3270->1445|3285->1451|3309->1454|3372->1490|3387->1496|3415->1503|3478->1539|3493->1545|3525->1556|3588->1592|3603->1598|3627->1601|3690->1637|3705->1643|3754->1671|3817->1707|3832->1713|3865->1725|3928->1761|3943->1767|3992->1795|4055->1831|4070->1837|4100->1846|4163->1882|4178->1888|4208->1897|4290->1948|4336->1966|4884->2483|4917->2489
-                  LINES: 18->1|23->2|28->2|30->4|30->4|30->4|31->5|32->6|32->6|32->6|32->6|33->7|33->7|33->7|34->8|35->9|36->10|36->10|36->10|36->10|37->11|37->11|37->11|38->12|38->12|38->12|39->13|39->13|39->13|40->14|40->14|40->14|41->15|42->16|43->17|45->19|45->19|45->19|46->20|61->35|61->35|61->35|62->36|63->37|63->37|63->37|64->38|64->38|64->38|65->39|65->39|65->39|66->40|66->40|66->40|67->41|67->41|67->41|68->42|68->42|68->42|69->43|69->43|69->43|70->44|70->44|70->44|71->45|71->45|71->45|73->47|74->48|89->63|90->64
+                  DATE: Sun Dec 09 23:20:52 JST 2018
+                  SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/index.scala.html
+                  HASH: df5458359cb9a26d4db5a88c46dd4d78eaecc01d
+                  MATRIX: 842->1|1104->167|1134->172|1164->194|1203->196|1236->228|1268->235|1280->239|1304->255|1352->266|1384->273|1397->278|1425->286|1461->293|1493->300|1505->304|1529->320|1577->331|1609->338|1622->343|1650->351|1687->358|1720->364|1776->393|1791->399|1856->455|1896->457|1938->472|1953->478|2004->508|2046->523|2061->529|2110->557|2152->571|2231->619|2269->630|2284->636|2349->692|2389->694|2427->705|2442->711|2489->737|2527->748|2542->754|2594->785|2631->795|2710->843|2743->849|2813->892|2846->916|2886->918|2928->932|3557->1534|3611->1572|3651->1574|3701->1596|3763->1631|3778->1637|3802->1640|3865->1676|3880->1682|3908->1689|3971->1725|3986->1731|4018->1742|4081->1778|4096->1784|4120->1787|4183->1823|4198->1829|4247->1857|4310->1893|4325->1899|4358->1911|4421->1947|4436->1953|4485->1981|4548->2017|4563->2023|4593->2032|4656->2068|4671->2074|4701->2083|4783->2134|4829->2152|5377->2669|5410->2675
+                  LINES: 22->1|27->1|29->3|29->3|29->3|30->4|31->5|31->5|31->5|31->5|32->6|32->6|32->6|33->7|34->8|34->8|34->8|34->8|35->9|35->9|35->9|36->10|37->11|38->12|38->12|38->12|38->12|39->13|39->13|39->13|40->14|40->14|40->14|41->15|42->16|43->17|43->17|43->17|43->17|44->18|44->18|44->18|45->19|45->19|45->19|46->20|47->21|48->22|50->24|50->24|50->24|51->25|66->40|66->40|66->40|67->41|68->42|68->42|68->42|69->43|69->43|69->43|70->44|70->44|70->44|71->45|71->45|71->45|72->46|72->46|72->46|73->47|73->47|73->47|74->48|74->48|74->48|75->49|75->49|75->49|76->50|76->50|76->50|78->52|79->53|94->68|95->69
                   -- GENERATED --
               */
           

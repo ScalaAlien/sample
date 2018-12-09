@@ -43,8 +43,8 @@ Seq[Any](format.raw/*1.4*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Sun Dec 09 20:55:26 JST 2018
-                  SOURCE: C:/Users/Kosuke/Desktop/sample/app/views/common/footer.scala.html
+                  DATE: Sun Dec 09 22:43:56 JST 2018
+                  SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/common/footer.scala.html
                   HASH: e1ea00ae700d863f73118bfe5a7e0e3aeeaa43ad
                   MATRIX: 745->1|841->3|871->7
                   LINES: 22->1|27->1|29->3

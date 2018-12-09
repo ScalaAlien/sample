@@ -5,7 +5,8 @@
 
 # An example controller showing a sample home page
 GET     /                                   controllers.BeaconController.index
-POST    /show                               controllers.BeaconController.show
+POST    /selectByDate                       controllers.BeaconController.selectByDate
+POST    /selectByItem                       controllers.BeaconController.selectByItem
 GET     /confirmFinishedProductInspection   controllers.BeaconController.confirmFinishedProductInspection(serial: String, bleAddress: String)
 GET     /confirmPackaging                   controllers.BeaconController.confirmPackaging(serial: String, bleAddress: String)
 POST    /createFinishedProductInspection    controllers.BeaconController.createFinishedProductInspection

@@ -1,0 +1,4 @@
+[0m[[0m[31merror[0m] [0m[0mC:\tools\cygwin\home\Kosuke\sources\sample\app\views\index.scala.html:17:58: value selectByItem is not a member of controllers.ReverseBeaconController[0m
+[0m[[0m[31merror[0m] [0m[0m        @helper.form(helper.CSRF(routes.BeaconController.selectByItem)) {[0m
+[0m[[0m[31merror[0m] [0m[0m                                                         ^[0m
+[0m[[0m[31merror[0m] [0m[0mone error found[0m

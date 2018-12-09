@@ -1,7 +1,8 @@
 package controllers
 
-import forms.Show
+import forms.{Date, Item}
 import java.time.ZonedDateTime
+
 import javax.inject._
 import models._
 import play.api.data.Forms._
@@ -9,6 +10,7 @@ import play.api.data._
 import play.api.i18n.{I18nSupport, Messages}
 import play.api.libs.json._
 import play.api.mvc._
+
 import scala.concurrent.ExecutionContext
 import services._
 
@@ -19,36 +21,59 @@ class BeaconController @Inject()(
                                   components: ControllerComponents)(implicit ec: ExecutionContext)
   extends AbstractController(components)
     with I18nSupport {
-  private val form = Form(
+  private val dateForm = Form(
     mapping(
       "date_start" -> localDate,
-      "date_end" -> localDate,
+      "date_end" -> localDate
+    )(Date.apply)(Date.unapply)
+  )
+  private val itemForm = Form(
+    mapping(
       "serial" -> text,
       "ble_address" -> text
-    )(Show.apply)(Show.unapply)
+    )(Item.apply)(Item.unapply)
   )
 
   def index = Action { implicit request: Request[AnyContent] =>
-    Ok(views.html.index(form, None))
+    Ok(views.html.index(dateForm,itemForm, None))
   }
 
-  def show: Action[AnyContent] = Action {
+  def selectByDate: Action[AnyContent] = Action {
     implicit request: Request[AnyContent] =>
-      form
+      dateForm
         .bindFromRequest()
         .fold(
           { formWithErrors =>
             println(formWithErrors)
-            BadRequest(views.html.index(formWithErrors, None))
-          }, { show =>
+            BadRequest(views.html.index(formWithErrors, itemForm, None))
+          }, { dateForm =>
             beaconService
-              .show(show.date_start,
-                show.date_end,
-                show.serial,
-                show.ble_address)
+              .selectByDate(dateForm.date_start,
+                dateForm.date_end)
               .map { beacons =>
                 println(beacons)
-                Ok(views.html.index(form, Some(beacons)))
+                Ok(views.html.index(this.dateForm, itemForm, Some(beacons)))
+              }
+              .getOrElse(InternalServerError(Messages("InternalError")))
+          }
+        )
+  }
+
+  def selectByItem: Action[AnyContent] = Action {
+    implicit request: Request[AnyContent] =>
+      itemForm
+        .bindFromRequest()
+        .fold(
+          { formWithErrors =>
+            println(formWithErrors)
+            BadRequest(views.html.index(dateForm, formWithErrors, None))
+          }, { itemForm =>
+            beaconService
+              .selectByItem(itemForm.serial,
+                itemForm.ble_address)
+              .map { beacons =>
+                println(beacons)
+                Ok(views.html.index(dateForm, this.itemForm, Some(beacons)))
               }
               .getOrElse(InternalServerError(Messages("InternalError")))
           }
