@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/tools/cygwin/home/Kosuke/sources/sample/conf/routes
-// @DATE:Wed Dec 05 20:20:29 JST 2018
+// @SOURCE:C:/Users/Kosuke/Desktop/sample/conf/routes
+// @DATE:Sun Dec 09 20:55:25 JST 2018
 
 import play.api.routing.JavaScriptReverseRoute
 
@@ -28,7 +28,7 @@ package controllers.javascript {
       """
     )
   
-    // @LINE:10
+    // @LINE:9
     def confirmFinishedProductInspection: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.BeaconController.confirmFinishedProductInspection",
       """
@@ -44,6 +44,16 @@ package controllers.javascript {
       """
         function() {
           return _wA({method:"POST", url:"""" + _prefix + { _defaultPrefix } + """" + "show"})
+        }
+      """
+    )
+  
+    // @LINE:10
+    def confirmPackaging: JavaScriptReverseRoute = JavaScriptReverseRoute(
+      "controllers.BeaconController.confirmPackaging",
+      """
+        function(serial0,bleAddress1) {
+          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "confirmPackaging" + _qS([(""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("serial", serial0), (""" + implicitly[play.api.mvc.QueryStringBindable[String]].javascriptUnbind + """)("bleAddress", bleAddress1)])})
         }
       """
     )
@@ -90,27 +100,7 @@ package controllers.javascript {
   
   }
 
-  // @LINE:9
-  class ReverseHomeController(_prefix: => String) {
-
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:9
-    def listPlaces: JavaScriptReverseRoute = JavaScriptReverseRoute(
-      "controllers.HomeController.listPlaces",
-      """
-        function() {
-          return _wA({method:"GET", url:"""" + _prefix + { _defaultPrefix } + """" + "listPlaces"})
-        }
-      """
-    )
-  
-  }
-
-  // @LINE:18
+  // @LINE:17
   class ReverseAssets(_prefix: => String) {
 
     def _defaultPrefix: String = {
@@ -118,7 +108,7 @@ package controllers.javascript {
     }
 
   
-    // @LINE:18
+    // @LINE:17
     def versioned: JavaScriptReverseRoute = JavaScriptReverseRoute(
       "controllers.Assets.versioned",
       """

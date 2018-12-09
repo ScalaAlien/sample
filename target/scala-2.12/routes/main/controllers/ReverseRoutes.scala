@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/tools/cygwin/home/Kosuke/sources/sample/conf/routes
-// @DATE:Wed Dec 05 20:20:29 JST 2018
+// @SOURCE:C:/Users/Kosuke/Desktop/sample/conf/routes
+// @DATE:Sun Dec 09 20:55:25 JST 2018
 
 import play.api.mvc.Call
 
@@ -23,7 +23,7 @@ package controllers {
       Call("POST", _prefix + { _defaultPrefix } + "updateVisualInspection")
     }
   
-    // @LINE:10
+    // @LINE:9
     def confirmFinishedProductInspection(serial:String, bleAddress:String): Call = {
       
       Call("GET", _prefix + { _defaultPrefix } + "confirmFinishedProductInspection" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("serial", serial)), Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("bleAddress", bleAddress)))))
@@ -33,6 +33,12 @@ package controllers {
     def show(): Call = {
       
       Call("POST", _prefix + { _defaultPrefix } + "show")
+    }
+  
+    // @LINE:10
+    def confirmPackaging(serial:String, bleAddress:String): Call = {
+      
+      Call("GET", _prefix + { _defaultPrefix } + "confirmPackaging" + play.core.routing.queryString(List(Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("serial", serial)), Some(implicitly[play.api.mvc.QueryStringBindable[String]].unbind("bleAddress", bleAddress)))))
     }
   
     // @LINE:12
@@ -61,29 +67,14 @@ package controllers {
   
   }
 
-  // @LINE:9
-  class ReverseHomeController(_prefix: => String) {
-    def _defaultPrefix: String = {
-      if (_prefix.endsWith("/")) "" else "/"
-    }
-
-  
-    // @LINE:9
-    def listPlaces(): Call = {
-      
-      Call("GET", _prefix + { _defaultPrefix } + "listPlaces")
-    }
-  
-  }
-
-  // @LINE:18
+  // @LINE:17
   class ReverseAssets(_prefix: => String) {
     def _defaultPrefix: String = {
       if (_prefix.endsWith("/")) "" else "/"
     }
 
   
-    // @LINE:18
+    // @LINE:17
     def versioned(file:Asset): Call = {
       implicit lazy val _rrc = new play.core.routing.ReverseRouteContext(Map(("path", "/public"))); _rrc
       Call("GET", _prefix + { _defaultPrefix } + "assets/" + implicitly[play.api.mvc.PathBindable[Asset]].unbind("file", file))

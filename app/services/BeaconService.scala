@@ -14,6 +14,8 @@ trait BeaconService {
 
   def update(beacon: Beacon)(implicit session: DBSession = AutoSession): Int
 
+  def show(dateStart: LocalDate, dateEnd: LocalDate, serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Seq[(Beacon, Int)]]
+
   def getBySerial(serial: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]]
 
   def getByBleAddress(bleAddress: String)(implicit session: DBSession = AutoSession): Try[Option[Beacon]]
@@ -23,7 +25,5 @@ trait BeaconService {
   def confirmFinishedProductInspection(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): JsObject
 
   def confirmPackaging(serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): JsObject
-
-  def show(dateStart: LocalDate, dateEnd: LocalDate, serial: String, bleAddress: String)(implicit session: DBSession = AutoSession): Try[Seq[(Beacon, Int)]]
 
 }

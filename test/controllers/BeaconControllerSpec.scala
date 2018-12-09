@@ -24,45 +24,51 @@ class BeaconControllerSpec extends FunSpec
   describe("BeaconController") {
     describe("route of BeaconController#createFinishedProductInspection") {
       it("should be valid") {
-        val result = route(app, FakeRequest(POST, routes.BeaconController.createFinishedProductInspection.toString).withFormUrlEncodedBody("serial" -> "a", "bleAddress" -> "b", "ng" -> "0")).get
+        val result = route(app, FakeRequest(POST, routes.BeaconController.createFinishedProductInspection.toString).withFormUrlEncodedBody("serial" -> "exists", "bleAddress" -> "exists", "ng" -> "0")).get
         status(result) mustBe OK
       }
     }
     describe("route of BeaconController#updateFinishedProductInspection") {
       it("should be valid") {
-        val result = route(app, FakeRequest(POST, routes.BeaconController.updateFinishedProductInspection.toString).withFormUrlEncodedBody("serial" -> "a", "bleAddress" -> "b", "ng" -> "0")).get
+        val result = route(app, FakeRequest(POST, routes.BeaconController.updateFinishedProductInspection.toString).withFormUrlEncodedBody("serial" -> "exists", "bleAddress" -> "exists", "ng" -> "0")).get
         status(result) mustBe OK
       }
     }
     describe("route of BeaconController#updateVisualInspection") {
       it("should be valid") {
-        val result = route(app, FakeRequest(POST, routes.BeaconController.updateVisualInspection.toString).withFormUrlEncodedBody("serial" -> "a")).get
+        val result = route(app, FakeRequest(POST, routes.BeaconController.updateVisualInspection.toString).withFormUrlEncodedBody("serial" -> "exists")).get
         status(result) mustBe OK
       }
     }
     describe("route of BeaconController#updatePackaging") {
       it("should be valid") {
-        val result = route(app, FakeRequest(POST, routes.BeaconController.updatePackaging.toString).withFormUrlEncodedBody("serial" -> "a")).get
+        val result = route(app, FakeRequest(POST, routes.BeaconController.updatePackaging.toString).withFormUrlEncodedBody("serial" -> "exists")).get
         status(result) mustBe OK
       }
     }
     describe("route of BeaconController#confirmFinishedProductInspection") {
       it("should be valid") {
-        val result = route(app, FakeRequest(GET, routes.BeaconController.confirmFinishedProductInspection("a", "b").toString)).get
-        status(result) mustBe OK
-      }
-    }
-    describe("route of BeaconController#confirmFinishedProductInspection \"BleAddress is not exists\"") {
-      it("should be valid") {
         val result = route(app, FakeRequest(GET, routes.BeaconController.confirmFinishedProductInspection("exists", "exists").toString)).get
         status(result) mustBe OK
       }
     }
-    describe("route of BeaconController#confirmFinishedProductInspection \"Serial is not exists\"") {
+    describe("route of BeaconController#confirmPackaging") {
       it("should be valid") {
-        val result = route(app, FakeRequest(GET, routes.BeaconController.confirmFinishedProductInspection("not_exists", "exists").toString)).get
+        val result = route(app, FakeRequest(GET, routes.BeaconController.confirmPackaging("exists", "exists").toString)).get
         status(result) mustBe OK
       }
     }
+    describe("route of BeaconController#index") {
+      it("should be valid") {
+        val result = route(app, FakeRequest(GET, routes.BeaconController.index.toString)).get
+        status(result) mustBe OK
+      }
+    }
+//    describe("route of BeaconController#show") {
+//      it("should be valid") {
+//        val result = route(app, FakeRequest(POST, routes.BeaconController.show().toString).withFormUrlEncodedBody(form, None)).get
+//        status(result) mustBe OK
+//      }
+//    }
   }
 }

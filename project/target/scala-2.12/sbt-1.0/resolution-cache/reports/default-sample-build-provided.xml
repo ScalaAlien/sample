@@ -9,7 +9,7 @@
 		extra-sbtVersion="1.0"
 		conf="provided"
 		confs="compile, runtime, test, provided, optional, compile-internal, runtime-internal, test-internal, plugin, pom, scala-tool"
-		date="20181205213823"/>
+		date="20181209192128"/>
 	<dependencies>
 		<module organisation="org.scala-sbt" name="sbt">
 			<revision name="1.2.1" status="release" pubdate="20180807082342" resolver="sbt-chain" artresolver="sbt-chain" homepage="https://github.com/sbt/sbt" downloaded="false" searched="false" default="false" conf="default, compile, runtime, default(compile), master" position="1">
@@ -626,9 +626,9 @@
 					</artifact>
 				</artifacts>
 			</revision>
-			<revision name="1.0.0" status="release" pubdate="20150818044630" resolver="public" artresolver="public" evicted="latest-revision" evicted-reason="" homepage="http://scala-sbt.org" downloaded="true" searched="true" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
+			<revision name="1.0.0" status="release" pubdate="20150818044630" resolver="sbt-chain" artresolver="sbt-chain" evicted="latest-revision" evicted-reason="" homepage="http://scala-sbt.org" downloaded="false" searched="false" default="false" conf="master(*), compile, runtime(*), runtime, compile(*), master" position="-1">
 				<license name="BSD" url="http://opensource.org/licenses/BSD-2-Clause"/>
-				<metadata-artifact status="successful" details="" size="1402" time="555" location="C:\Users\Kosuke\.ivy2\cache\org.scala-sbt\launcher-interface\ivy-1.0.0.xml" searched="true" original-local-location="C:\Users\Kosuke\.ivy2\cache\org.scala-sbt\launcher-interface\ivy-1.0.0.xml.original" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/launcher-interface/1.0.0/launcher-interface-1.0.0.pom"/>
+				<metadata-artifact status="no" details="" size="2534" time="0" location="C:\Users\Kosuke\.ivy2\cache\org.scala-sbt\launcher-interface\ivy-1.0.0.xml" searched="false" origin-is-local="false" origin-location="https://repo1.maven.org/maven2/org/scala-sbt/launcher-interface/1.0.0/launcher-interface-1.0.0.pom"/>
 				<evicted-by rev="1.0.4"/>
 				<caller organisation="org.scala-sbt" name="librarymanagement-core_2.12" conf="compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.2.0"/>
 				<caller organisation="org.scala-sbt" name="zinc-compile-core_2.12" conf="compile, runtime" rev="1.0.0" rev-constraint-default="1.0.0" rev-constraint-dynamic="1.0.0" callerrev="1.2.1"/>

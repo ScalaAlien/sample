@@ -24,7 +24,8 @@ object footer extends _root_.play.twirl.api.BaseScalaTemplate[play.twirl.api.Htm
       {
 
 
-Seq[Any](format.raw/*2.1*/("""
+Seq[Any](format.raw/*1.4*/("""
+
 """),format.raw/*3.1*/("""<footer>
 </footer>"""))
       }
@@ -42,11 +43,11 @@ Seq[Any](format.raw/*2.1*/("""
 
               /*
                   -- GENERATED --
-                  DATE: Wed Dec 05 20:20:30 JST 2018
-                  SOURCE: C:/tools/cygwin/home/Kosuke/sources/sample/app/views/common/footer.scala.html
-                  HASH: 8dbd6ab1d8ec76ec3cd7a8e18b8c7b99972178cf
-                  MATRIX: 745->1|841->4|868->5
-                  LINES: 22->1|27->2|28->3
+                  DATE: Sun Dec 09 20:55:26 JST 2018
+                  SOURCE: C:/Users/Kosuke/Desktop/sample/app/views/common/footer.scala.html
+                  HASH: e1ea00ae700d863f73118bfe5a7e0e3aeeaa43ad
+                  MATRIX: 745->1|841->3|871->7
+                  LINES: 22->1|27->1|29->3
                   -- GENERATED --
               */
           

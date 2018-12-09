@@ -1,6 +1,6 @@
 // @GENERATOR:play-routes-compiler
-// @SOURCE:C:/tools/cygwin/home/Kosuke/sources/sample/conf/routes
-// @DATE:Wed Dec 05 20:20:29 JST 2018
+// @SOURCE:C:/Users/Kosuke/Desktop/sample/conf/routes
+// @DATE:Sun Dec 09 20:55:25 JST 2018
 
 
 package router {
